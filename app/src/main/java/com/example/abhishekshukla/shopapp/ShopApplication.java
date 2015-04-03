@@ -1,0 +1,55 @@
+package com.example.abhishekshukla.shopapp;
+
+import java.util.EnumSet;
+import java.util.List;
+
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
+import android.app.Application;
+import android.content.pm.ApplicationInfo;
+import com.example.abhishekshukla.shopapp.util.ImageLoader;
+
+
+public class ShopApplication extends android.app.Application {
+    public static boolean DEBUG = false;
+    public static final String LOG_TAG = "ShopApp";
+    private static android.app.Application sInstance = null;
+    
+    @Override
+    public void onCreate() {
+        sInstance = this;
+        super.onCreate();
+        DEBUG = (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
+        
+        if ( getApplicationInfo().processName.equals(getCurrentProcessName()) )
+            initFvApplication();
+    }
+    
+    private void initFvApplication() {
+        new Thread() {
+            @Override
+            public void run() {
+                ImageLoader.getInstance().loadFromDiskCache();
+            }
+        }.start();
+    }
+    
+    private String getCurrentProcessName() {
+        final ActivityManager activityManager = (ActivityManager)this.getSystemService(ACTIVITY_SERVICE);
+        final List<RunningAppProcessInfo> runningProcesses = activityManager.getRunningAppProcesses();
+        for (RunningAppProcessInfo process : runningProcesses) {
+            if ( process.pid == android.os.Process.myPid() ) 
+                return process.processName;
+        }
+        return null;
+    }
+    
+    public static final android.app.Application getInstance() {
+        return sInstance;
+    }
+    
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+    }
+}

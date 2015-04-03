@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="term_of_use_url">http://www.amazon.com/gp/help/customer/display.html?nodeId=200699130</string>
+    <string name="auth_portal_domain">https://www.amazon.com</string>
+    <string name="more_amazon_apps_url">http://www.amazon.com/gp/aw/fp.html/?id=android-apps</string>
+    
+    <!-- options url -->
+    <string name="help_url">http://www.amazon.com/appsuitehelp</string> 
+    <string name="terms_and_conditions_url">http://www.amazon.com/gp/help/customer/display.html?ie=UTF8&amp;nodeId=200699130</string>
+    <string name="privacy_url">http://www.amazon.com/gp/help/customer/display.html/ref=footer_privacy?ie=UTF8&amp;nodeId=468496</string>
+</resources>

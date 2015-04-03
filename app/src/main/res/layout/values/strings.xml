@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Amazon</string>
+    <string name="app_name_kindle">Kindle</string>
+    <string name="app_name_mp3">MP3</string>
+    <string name="app_name_shop">Shop</string>
+    <string name="app_name_local">Local</string>
+    <string name="app_item_url_for_install_in_appstore">http://www.amazon.com/gp/mas/dl/android?p=%s</string>
+    <string name="app_item_url_for_install_in_market">http://play.google.com/store/apps/details?id=%s</string>
+    <string name="amazon_appstore_landing_page_url">http://www.amazon.com/amazonappstoreapp</string>
+    
+    <!-- SSO related strings --> 
+    <string name="amazon_account_label">Amazon</string>
+    <string name="auth_sdk_desc">Signature level permission to use the Identity Mobile Library</string>
+    
+    <!-- Sign-in page -->
+    <string name="sign_in_tou">By selecting Sign in, you agree to our Terms of Use.</string>
+    <string name="sign_in_header">Sign in with your Amazon.com account:</string>
+    <string name="sign_in_email_hint">E-mail address</string>
+    <string name="sign_in_password_hint">Amazon.com password</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_in_need_help">Need help?</string>
+    <string name="sign_in_progress_message">Signing in to Amazon&#8230;</string>
+    <string name="sign_in_forgot_password">Forgot password?</string>
+    <string name="sign_in_create_account_description">Don\'t already have an account?</string>
+    <string name="sign_in_create_account">Create an account</string>
+    <string name="sign_in_error">Sign in error</string>
+    
+    <!-- Tutorial Page -->
+    <string name="tutorial_next">Next</string>
+    <string name="tutorial_finish">Finish</string>
+
+    <string name="store">Shop</string>
+    <string name="no_item_string">Loading items or no item available.</string>
+    <string name="network_not_available">Network not available.</string>
+    <string name="check_setting_and_retry">Your content failed to load. Please check the settings on your phone and try again.</string>
+
+    <!-- Search -->
+    <string name="app_unavailable">Application not installed or Intent mismatch</string>
+    <string name="ok">OK</string>
+    <string name="search_label">Search</string>
+    <string name="search_hint">Search Amazon</string>
+    <string name="search_suggestions">Suggestions</string>
+    <string name="search_in_music_albums">in MP3 Albums</string>
+    <string name="search_in_music_songs">in MP3 Songs</string>
+    <string name="search_in_kindle_store">in Kindle Store</string>
+    <string name="search_in_shop_store">in Physical Products</string>
+    <!-- TODO: change the description -->
+    <string name="search_app_locale_not_supported">The current locale is not supported</string>
+    
+    <string name="more_amazon_apps_text_in_home">Explore More Amazon Apps</string>
+    <string-array name="more_amazon_apps_package_name">
+          <item>com.amazon.venezia</item>
+          <item>com.imdb.mobile</item>
+          <item>com.zappos.android</item>
+          <item>com.audible.application</item>
+    </string-array>
+    
+    <string name="kindle_best_sellers_title"><b>Kindle</b> Best Sellers</string>
+    <string name="music_best_sellers_title"><b>Music</b> Best Sellers</string>
+    
+    <string name="kindle_normal_title">Your Kindle Library</string>
+    <string name="shop_normal_title">Products For You</string>
+    <string name="music_normal_title">Your Music Library</string>
+    <string name="local_normal_title">Your AmazonLocal Deals</string>
+    
+    <string name="could_not_load_text">We will continue to load your %1$s content. You can launch the %2$s app anytime.</string>
+    <string name="start_app_button">Go</string>
+  
+    <!-- ODAC -->
+    <string name="access_token_error_title">Access-Token Error</string>
+    <string name="access_token_error_message">* We are unable to register your Device. Please try again later. For help, contact Customer Service.</string>
+    <string name="auth_error_title">Authentication Error</string>
+    <string name="force_update_error">Force Update</string>
+    <string name="reg_err_title">Registration Failed : </string>
+    <string name="loading_progress_message">Loading, Please Wait&#8230;</string>
+    <string name="create_account_wait_message">Creating new account, please wait</string>
+    <string name="loading_error_title">Failed to load the webpage, please try again</string>
+    <string name="wifi_not_connected">An Internet connection is required for this task. Please connect to a network.</string>
+    <string name="wifi_error_title">No Internet Connection</string>
+    <string name="wifi_on_button">Wireless Settings</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="ok_button">OK</string>
+    <string name="skip_odac_payment_title">Skip payment info?</string>
+    <string name="skip_odac_billing_title">Skip billing info?</string>
+    <string name="skip_odac_payment_message">Your device is registered. However, to buy books,
+        music, videos, and apps with one click from amazon store, you must enter payment
+        information. To complete your account setup, log in to your Amazon
+        account at www.amazon.com.
+    </string>
+    <string name="skip_odac_billing_message">Your device is registered. However to buy books, music, video, and apps with
+        one click from amazon store, you must enter your billing information. To complete your account setup, log in to your Amazon
+        account at www.amazon.com.
+    </string>
+    <string name="positive_button">OK</string>
+    <string name="negative_button">Cancel</string>
+    <string name="request_timeout_error_title">Server response timed out</string>
+    <string name="request_timeout_error_message">The server is taking longer than expected to respond. Please try again later.</string>
+    <string name="sso_callback_timeout_error">SSO callback timedout</string>
+    <string name="create_successfully_add_account_failed">Account has been created successfully, but failed to add account to device, please login again</string>
+    <string name="create_account_error_from_map">The server is taking longer than expected to respond. Please try again later.</string>
+    <!-- Menu -->
+    <string name="menu_header_format">%s\'s Amazon</string>
+    <string name="menu_kindle">Kindle</string>
+    <string name="menu_mp3">Music</string>
+    <string name="menu_shop">Products</string>
+    <string name="menu_local">AmazonLocal</string>
+    <string name="menu_option">Options</string>
+    <string name="menu_about">About</string>
+    <string name="menu_debug_setting">Debug Setting</string>
+    
+    <!-- More options menu-->
+    <string name="option_menu_help">Help</string>
+    <string name="option_menu_tutorial">Tutorial</string>
+    <string name="option_menu_feedback">Feedback</string>
+    <string name="option_menu_terms_and_conditions">Terms &amp; Conditions </string>
+    <string name="option_menu_privacy">Privacy</string>
+    <string name="option_menu_sign_out">Sign Out</string>
+    
+    <!-- Email -->
+    <string name="send_email">Send Email</string>
+    <string name="feedback_title">Amazon Android App (Version %s)</string>
+    <string name="feedback_title_missing_placeholder">-</string>
+    <string name="feedback_mail_to">feedback-amazon-app-fv@amazon.com</string>
+    
+    <!-- Sign-out -->
+    <string name="signout_progress_message">Signing out of Amazon\u2026</string>
+    <string name="signout_failure">Logout FAILED</string>
+    
+    <!-- About -->
+    <string name="about">About</string>
+    <string name="about_missing_placeholder">-</string>
+    <string name="about_description">Amazon for Android</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_copyright">&#169; 1996&#8211;2012, Amazon.com, Inc. or its affiliates</string>
+    
+    <!-- DCP Pref Resources start : 
+        DO NOT DELETE. Even if there is lint warning, this should not be deleted. 
+        This resource will be used in dcp.jar using getIdentifier.
+    -->
+    <string name="MetricsDomain">Grover</string>
+    <string name="summary_host_cat">Change the hosts that DCP requests hit (i.e. prod, preprod, or devo)</string>
+    <string name="summary_host_firs">This changes the host for all DMS FIRS requests that DCP does (i.e registration, deregistration, and etc)</string>
+    <string name="summary_host_todo">This changes the host for all DMS TODO requests that DCP does.</string>
+    <string name="summary_host_det">This changes the host for all DMS DET requests that DCP does (this is for logs and metrics).</string>
+    <string name="summary_host_odot">This changes the host for all ODOT requests that DCP does.</string>
+    <string name="summary_host_amazon_com">This changes the host for all amazon.com general requests that DCP does (for example getting OAuth Tokens).</string>
+    <string name="summary_dms_subauth_preprod">This points all DMS sub auth registerAssociatedDevice requests at preprod (gamma). This will only work for apps that use DMS (the app store is an example of an app that does not use DMS).</string>
+    <string name="summary_trust_all_ssl_hosts">This allows DCP to trust all SSL hosts. This is necessary for DEVO and for using tools like fiddler to examine our requests. For security reasons this setting is only available on debug builds</string>
+
+    <string name="summary_ota">All OTA related preferences</string>
+    <string name="summary_minimum_battery">The minimum battery percent needed to install (via OTA or sideload) an update</string>
+    <string name="summary_minimum_ota_idle">The minimum device idle time (ms) before a pending OTA update can be installed</string>
+    <string name="summary_audio_poll">How often (in ms) OTA should poll for a change in audio state. This is so OTA knows when to install when audio stops playing</string>
+    <string name="summary_app_state_poll_interval">How often (in ms) OTA should poll an app it wishes to upgrade state. This is so it can figure out a good time to upgrade the app.</string>
+
+    <string name="summary_messaging">All Messaging (TODO) related preferences</string>
+    <string name="summary_messaging_minimum_interval">Throttle the processing of messages to only once in the given interval (ms)</string>
+    <string name="summary_messaging_poll">Process Messages at least once in the given interval (ms)</string>
+
+    <string name="summary_metrics">All Metrics related preferences</string>
+    <string name="summary_max_upload_cache">The max number of items that the upload cache can hold.</string>
+    <string name="summary_turn_off_crash_reporting">Don\'t report crashes (crash reports and dropbox entries). This is for when you are developing and expect crashes.  It will prevent crashes during development from polluting our crash reporting metr
+ics and reports.</string>
+
+    <string name="summary_misc">All other preferences</string>
+    <string name="summary_download_rate">How often (in ms) OTA download progress reporting should poll for the actual OTA download progress.</string>
+
+    <string name="summary_ignore_server_side_deregister">Ignore a server side deregister request.  This is mostly made for testing features that require a deregister account on the server to not be removed on the client.</string>
+
+    <string name="OnlyOneAmazonAccountString">Only one Amazon account is supported.</string>
+
+    <string name="ErrorConnectingToSubAuth">Can not complete operation because there was an error communicating with package %s</string>
+
+    <string name="ErrorUnsupportedAccountAuthenticatorOperation">%s is NOT supported in AccountAuthenticator.</string>
+
+    <string name="internal_docs_lbl"> DCP Internal Documentation </string>
+
+    <string name="invalid_doc_txt">Invalid DCP documentation</string>
+
+    <string name="Central_Todo_Conflicting_Message_Handlers_Docs"> Your newly defined message handler conflicts with another already defined message handler. There can only be one message handler on the system that listens to a certain topic or type
+and action.  You will hence need to change the topic or type and action of your message to something unique.  </string>
+    <string name="Using_DCP_Tokens_In_Improper_Manner"> You are attempting to access a service which only DCP should have access to. Calling these services could disrupt normal operations of the device as a whole.  Most of these services are exposed
+through DCP in other ways. For registration related items there is SSO. For ToDo and Device Messaging, there is the Central ToDo Queue. For Metrics and Logging, there is DCPs central metric service.  If you believe that we are blocking this request i
+n error please contact dcp-team@. </string>
+    
+    <!-- DCP Pref Resources end -->
+    <string name="amazon_app_is_missed_title">Application missed</string>
+    <string name="amazon_app_is_missed_message">This app is disabled or not installed. Do you want to fix this?</string>
+    <string name="amazon_app_is_missed_positive_text">OK</string>
+    <string name="amazon_app_is_missed_negative_text">Cancel</string>
+    <string name="amazon_app_is_missed_title_kindle">Kindle</string>
+    <string name="amazon_app_is_missed_title_mp3">Amazon MP3</string>
+    <string name="amazon_app_is_missed_title_shop">Amazon Mobile</string>
+    
+    <!-- Market Place Id -->
+    <string name="marketplace_obfuscated_id">ATVPDKIKX0DER</string>
+    
+    <!--     String for logging -->
+    <string name="skip_content_provider_logging_string">Skip content provider %s because it does not exist</string>
+    <string name="content_provider_logging_string">Get %1$s data from %2$s</string>
+    <string name="content_logging_from_remote_server">Get %1$s data from Remote Server %2$s</string>
+    <string name="search_logging_string">Get suggestion for query: %1$s </string>
+    <string name="widget_home_logging_string">Get %1$s strip view at postion: %2$d </string>
+    <string name="delete_previous_database_table">Delete previous \'%s\' table</string>
+    <string name="inserting_content_item">Inserting item value to Database : %s</string>
+    <string name="insertint_content_to_database">Insert %s contents to Database</string>    
+    <string name="kindle_book_in_recommendation">Kindle Book</string>
+    <string name="mp3_album_in_recommendation">Mp3 Album</string>
+    <string name="kindle_magazine_in_recommendation">Kindle Magazine</string>
+    <string name="mp3_track_in_recommendation">Mp3 Track</string>
+    <string name="general_broadcast_for_logging">Received %1$s %2$s broadcast, handling message&#8230;</string>
+    <string name="wait_for_dismiss_dialog_log">Waiting for dismissing dialog braodcast:%s</string>
+    <string name="sign_in_successful_log">sign-in successful</string>
+    <string name="user_clicked_login_button_log">user clicked sign-in</string>
+    <string name="add_account_to_accountmanager_log">Add account to account manager using DCP</string>
+    <string name="sign_in_error_log">sign-in error</string>
+    <string name="receive_data_changed_broadcast_log">receive data changed broadcast from %s</string>
+    <string name="process_click_action_log">Process click action :</string>
+    <string name="start_activity_log">Start activity: </string>
+    <string name="load_data_to_cache_log">load data from database to cache type : </string>
+    <string name="sign_out_from_account_manager">Signing out from AccountManager</string>
+    <string name="sync_service_on_start_command_log">onStartCommand with intent %1$s %2$s</string>
+    <string name="sync_service_sync_runnable_log">Queueing SyncRunnable %1$s data from %2$s</string>
+    <string name="fetching_x_main_log">Fetching x-main cookie from DCP for %s</string>
+    
+    <string name="text_in_loading_widget">Loading your Amazon content&#8230;</string>
+    
+    <!-- Home static title -->
+    <string name="home_static_tag_lines">Over 22 million Kindle books, songs, and physical products.</string>
+    
+    <!-- More amazon apps item label -->
+    <string name="appstore">Amazon Appstore</string>
+    <string name="imdb">IMDb</string>
+    <string name="zappos">Zappos</string>
+    <string name="audible">Audible</string>
+    
+    <!-- Kindle best seller link default -->
+    <string name="kindle_best_sellers_default_link">http://www.amazon.com/gp/aw/kindle/lists/ref=kina_tsf_top?ie=UTF8&amp;category=topSellers&amp;page=1</string>
+    
+    <!-- Loading message for stripe -->
+    <string name="loading_your_library_contents">Loading your content&#8230;</string>
+    
+</resources>

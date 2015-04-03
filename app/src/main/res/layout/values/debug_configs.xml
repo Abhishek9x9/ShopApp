@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Preference Keys -->
+    <string name="debug_widget_rendering_timeout_key">debug_widget_rendering_timeout_key</string>
+    <string name="debug_turn_off_tutorial">debug_turn_off_tutorial_key</string>
+
+    <!-- Preference title -->
+    <string name="debug_widget_timeout_title">Widget rendering timeout</string>
+    <string name="debug_turn_off_tutorial_title">Turn off tutorial</string>
+    
+    <!-- Preference summary -->
+    <string name="debug_widget_timeout_summary">This defines timeout to show contents of widget. From next sign-in, this will be affected. (unit : ms)</string>
+    <string name="debug_turn_off_tutorial_summary">Turn off tutorial on sign-in process. From next sign-in, this will be affected.</string>
+    
+    <!-- Preference default values -->
+    <integer name="debug_widget_timeout_default_values">@integer/loading_widget_timeout</integer>
+    <bool name="debug_turn_off_tutorial_default_value">false</bool>
+    
+</resources>

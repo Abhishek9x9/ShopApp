@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_header_button_text_size">14sp</dimen>
+    <dimen name="content_view_title_text_size">18sp</dimen>
+    <dimen name="shop_view_item_title">11sp</dimen>
+    <dimen name="text_size_in_choose_app_dialog">20sp</dimen>
+    <dimen name="home_search_box_hint_text">14sp</dimen>
+    <dimen name="search_edit_text">16sp</dimen>
+    <dimen name="search_item_text">16sp</dimen>
+    <dimen name="menu_header_user_name_size">18sp</dimen>
+    <dimen name="home_welcome_text">16sp</dimen>
+    
+    <dimen name="recommendation_title_block_font_size">10sp</dimen>
+    <dimen name="login_page_font_size">18sp</dimen>
+    <dimen name="more_apps_item_label">12sp</dimen>
+    <dimen name="login_page_button_font_size">18sp</dimen>
+    <dimen name="widget_home_page_button_font_size">16sp</dimen>
+    <dimen name="home_empty_view_description_text_font_size">16sp</dimen>
+</resources>

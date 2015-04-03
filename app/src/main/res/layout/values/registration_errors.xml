@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ACCOUNT_ALREADY_EXISTS">* Account already exists for this device</string>
+    <string name="AUTHENTICATION_FAILED">* The E-mail address or password you entered does not match any Amazon account on record. Please try again. For help, contact Kindle Customer Service at www.kindle.com/support.</string>
+    <string name="BAD_REQUEST">* There was an error while registering your Kindle. Please try again later. For help, contact Kindle Customer Service at www.kindle.com/support.</string>
+    <string name="CUSTOMER_NOT_FOUND">* The E-mail address or password you entered does not match any Amazon account on record. Please try again. For help, contact Kindle Customer Service at www.kindle.com/support.</string>
+    <string name="DEREGISTER_FAILED">* De-registration failed</string>
+    <string name="DEVICE_ALREADY_REGISTERED">* Device already registered with another account</string>
+    <string name="DUPLICATE_DEVICE_NAME">* Duplicate device name</string>
+    <string name="NETWORK_FAILURE">* An error occurred while trying to contact the registration server. Please check your connection and try again. If the problem persists, contact Kindle Customer Service at www.kindle.com/support.</string>
+    <string name="PARSE_ERROR">* There was an error while registering your Kindle. Please try again later. For help, contact Kindle Customer Service at www.kindle.com/support.</string>
+    <string name="REGISTER_FAILED">* We are unable to register your Kindle. Please try again later. For help, contact Kindle Customer Service at www.kindle.com/support.</string>
+    <string name="UNRECOGNIZED">* There was an error while registering your Kindle. Please try again later. For help, contact Kindle Customer Service at www.kindle.com/support.</string>
+</resources>

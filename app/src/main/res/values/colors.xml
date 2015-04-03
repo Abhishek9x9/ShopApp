@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="search_bar_start_bg">#ff000000</color>
+    <color name="search_bar_end_bg">#ff161616</color>
+    <color name="search_suggestion_query">#EEEEEE</color>
+    <color name="search_suggestion_store_name">#BBBBBB</color>
+    <color name="search_horizontal_divider_start">#10C2C2C2</color>
+    <color name="search_horizontal_divider_end">#BF3C3C3C</color>
+    <color name="widget_logo_background_gradient_start">#ff161616</color>
+    <color name="widget_logo_background_gradient_end">#ff000000</color>
+
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="sso_time_out">60000</integer> <!-- 60 seconds -->
+    <integer name="search_input_field_max_length">500</integer>
+    <integer name="loading_widget_timeout">45000</integer>
+</resources>

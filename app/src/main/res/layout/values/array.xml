@@ -1,0 +1,66 @@
+<resources>
+    <string-array name="dms_host_type_names">
+        <item>Prod (default)</item>
+        <item>PreProd</item>
+        <item>Devo</item>
+    </string-array>
+    
+    <string-array name="odot_host_type_values">
+        <item>device-messaging-na.amazon.com</item>
+        <item>device-messaging-na-preprod.amazon.com</item>
+        <item>device-messaging-na.integ.amazon.com</item>
+    </string-array>
+    
+    <string-array name="firs_host_type_values">
+        <item>firs-ta-g7g.amazon.com</item>
+        <item>firs-ta-g7g-preprod.amazon.com</item>
+        <item>firs-ta-g7g.vipinteg.amazon.com</item>
+    </string-array>
+    <string-array name="todo_host_type_values">
+        <item>todo-ta-g7g.amazon.com</item>
+        <item>todo-ta-g7g-preprod.amazon.com</item>
+        <item>todo-ta-g7g.integ.amazon.com</item>
+    </string-array>
+    <string-array name="det_host_type_values">
+        <item>det-ta-g7g.amazon.com</item>
+        <item>det-ta-g7g-preprod.amazon.com</item>
+        <item>det-ta-g7g.integ.amazon.com</item>
+    </string-array>
+    <string-array name="amazon_com_host_type_values">
+        <item>www.amazon.com</item>
+        <item>pre-prod.amazon.com</item>
+        <item>development.amazon.com</item>
+    </string-array>
+    <string-array name="ssl_trust_hosts_names">
+        <item>Use Android Default SSL</item>
+        <item>Trust All SSL Hosts</item>
+    </string-array>
+    <string-array name="turn_off_crash_reporting_names">
+        <item>Crash Reporting On</item>
+        <item>Crash Reporting Off</item>
+    </string-array>
+    <string-array name="point_dms_sub_auth_preprod">
+        <item>Prod</item>
+        <item>PreProd (gammma)</item>
+    </string-array>
+    <string-array name="ota_download_network">
+        <item>Any Network</item>
+        <item>Wifi Only</item>
+    </string-array>
+    <string-array name="string_boolean_values">
+        <item>false</item>
+        <item>true</item>
+    </string-array>
+    <string-array name="use_register_client_ui_names">
+        <item>Don\'t default to register client UI</item>
+        <item>Default to register client UI</item>
+    </string-array>
+    <string-array name="ignore_server_side_deregister_names">
+        <item>Allow Server Side Deregister Request (Normal)</item>
+        <item>Ignore Server Side Deregister Request (Testing)</item>
+    </string-array>
+    <string-array name="allow_os_version_downgrade_names">
+        <item>Disallow to install downgrade OS version</item>
+        <item>Allow to install downgrade OS version</item>
+    </string-array>
+</resources>

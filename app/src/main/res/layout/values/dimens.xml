@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common -->
+    <dimen name="separator_height">1dp</dimen>
+    
+    <!-- Main Widget -->
+    <dimen name="widget_minHeight">280dp</dimen>
+    <dimen name="widget_minWidth">250dp</dimen>  
+    <dimen name="widget_header_corner_radius">2dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="widget_header_margin_left">12dp</dimen>
+    <dimen name="widget_header_margin_right">12dp</dimen>
+    <dimen name="widget_outline_width">1px</dimen>
+    <dimen name="listview_fadding_edge_length">25dp</dimen>
+    <!-- Widget padding for below honey comb -->
+    <dimen name="widget_side_padding">8dp</dimen>
+    
+    <dimen name="padding">8dp</dimen>
+    <dimen name="padding_half">4dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+    <dimen name="padding_extra_small">3dp</dimen>
+    <dimen name="padding_smallest">2dp</dimen>
+    <dimen name="padding_one_and_a_half">12dp</dimen>
+    <dimen name="padding_double">16dp</dimen>
+    <dimen name="padding_home_item_bottom">14dp</dimen>
+
+    <dimen name="header_height">45dp</dimen>
+    <dimen name="header_button_height">40dp</dimen>
+    <dimen name="header_button_padding_left_right">24dp</dimen>
+    <dimen name="header_height_not_sign_in">80dp</dimen>
+    
+     
+    <!-- Sign-in -->
+    <dimen name="sign_in_input_field_left_right_margin">@dimen/padding</dimen>
+    <dimen name="sign_in_text_field_left_right_margin">@dimen/padding</dimen>
+    <dimen name="sign_in_button_left_right_margin">@dimen/padding</dimen>
+    <dimen name="sign_in_button_width">100dp</dimen>
+    <dimen name="sign_in_button_height">40dp</dimen>
+    <dimen name="sign_in_header_height">48dp</dimen>
+
+    <dimen name="choose_app_dialog_width">250dp</dimen>
+    <dimen name="more_option_menu_dialog_width">250dp</dimen>
+    <dimen name="icon_size_in_choose_app_dialog">30dp</dimen>
+    
+    <!-- set image size as pixel intentially. -->
+    <!-- image size is super big in xxhdpi devices when using dp, which consumes a lot memory -->
+    <!-- use fixed size image, and stretch in xxhpdi devices -->
+    <!-- this is image size in xhdpi device, so we need to set density of Bitmap to XHIGH before displaying -->
+    <dimen name="item_image_width">200px</dimen>
+    <dimen name="item_image_height">360px</dimen>
+
+    <dimen name="widget_header_buttons_padding">4dp</dimen>
+    
+    <dimen name="search_header_height">48dp</dimen>
+    
+    <dimen name="home_subtitle_top_padding">10dp</dimen>
+    <dimen name="home_subtitle_bottom_padding">6dp</dimen>
+    <dimen name="home_subcategory_images_padding">10dp</dimen>
+    <dimen name="home_subcategory_padding_between_images">6dp</dimen>
+    
+    <dimen name="home_shop_item_width">142dp</dimen>
+    <dimen name="home_shop_item_text_width">53dp</dimen>
+    
+    <dimen name="overlay_item_height">40dp</dimen>
+    <!--     Per bug: https://jira1.amazon.com/browse/FV-290 we have to use px here -->
+    <dimen name="divider_height_in_overlay">1px</dimen>
+    <dimen name="progressbar_size_in_loading_widget">60dp</dimen>
+    
+    <item name="home_subtitle_shadow_size" format="float" type="dimen">1.2</item>
+    <item name="home_subtitle_shadow_vertical_offset" format="float" type="dimen">-1.2</item>
+    
+    <dimen name="progress_stripe_item_height">108dp</dimen>
+    <dimen name="empty_stripe_block_height">@dimen/progress_stripe_item_height</dimen> <!-- this should be always same as progress height -->
+     <dimen name="tutorial_gallery_spacing">16dp</dimen>
+</resources>
