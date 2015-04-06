@@ -1,5 +1,6 @@
 package com.example.abhishekshukla.shopapp.dto;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ import java.util.Set;
  * Created by abhishekshukla on 1/4/15.
  */
 
-public class Product {
+public class Product implements Serializable{
     long id;
     String url;
     String brand;

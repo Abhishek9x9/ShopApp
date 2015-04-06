@@ -1,6 +1,9 @@
 package com.example.abhishekshukla.shopapp;
 
-import java.util.HashMap;
+import com.example.abhishekshukla.shopapp.dto.Product;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -8,7 +11,7 @@ import java.util.Map;
  */
 public class UserCart {
 
-    private Map<String, String> itemMap = new HashMap<String, String>();
+    private List<String> itemMap = new ArrayList<String>();
     private UserCart() {
 
     }
@@ -18,6 +21,7 @@ public class UserCart {
     {
         return userCart;
     }
+    public void addItem(Product product) {itemMap.add("" + product.getId());}
     public int getCartSize()
     {
         return itemMap.size();

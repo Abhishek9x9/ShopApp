@@ -285,7 +285,7 @@ public final class ImageLoader {
 
     public static interface ImageLoaderSubscriber {
         public void onLoadStarted();
-        public void onLoadCompleted(Bitmap bitmap);
+        public void onLoadCompleted(final Bitmap bitmap);
         public void onLoadFailed();
     }
 }

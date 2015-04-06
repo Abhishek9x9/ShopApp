@@ -21,7 +21,7 @@ import com.example.abhishekshukla.shopapp.R;
 import com.example.abhishekshukla.shopapp.util.Util;
 import com.example.abhishekshukla.shopapp.util.UIUtil;
 
-public class SearchActivity extends Activity{
+public class SearchActivity extends Activity {
     
     private TextView mSuggestionsLabel;
     private ListView mListView;
@@ -42,7 +42,7 @@ public class SearchActivity extends Activity{
         cartTextView = (TextView) findViewById(R.id.cartTextView);
         mListView = (ListView) findViewById(R.id.search_list_view);
         mListView.setVerticalFadingEdgeEnabled(true);
-        mResultsManager = new ResultsManager(this, mListView, cartTextView);
+        mResultsManager = new ResultsManager(this, mListView);
         setupQueryEditBox();
 
         mSearchButton.setOnClickListener(new OnClickListener(){
@@ -64,6 +64,11 @@ public class SearchActivity extends Activity{
         cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
     }
 
+    @Override
+    protected  void  onResume () {
+        super.onResume();
+        cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

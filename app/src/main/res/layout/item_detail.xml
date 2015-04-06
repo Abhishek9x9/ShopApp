@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/search_header_background">
+        <ImageView
+            android:layout_width="77dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/shop_local"
+            android:paddingLeft="@dimen/padding_half"
+            android:paddingTop="@dimen/padding_half"
+            android:paddingBottom="@dimen/padding_half"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/cart"
+                android:paddingTop="@dimen/padding_half"
+                android:paddingBottom="@dimen/padding_half"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/itemDetailCartTextView"
+                android:layout_toStartOf="@+id/itemDetailCartTextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="(2)"
+                android:textColor="@android:color/white"
+                android:paddingRight="@dimen/padding_small"
+                android:paddingTop="@dimen/padding"
+                android:paddingBottom="@dimen/padding_double"
+                android:id="@+id/itemDetailCartTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/itemImageView"
+        android:background="@android:color/white"
+        android:layout_gravity="center_horizontal"/>
+    
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="New Text"
+        android:id="@+id/textView2"
+        android:layout_weight="0.11"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="New Text"
+        android:id="@+id/textView3"
+        android:layout_weight="0.11"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="New Text"
+        android:id="@+id/textView4"
+        android:layout_weight="0.11"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="New Text"
+        android:id="@+id/textView5"
+        android:layout_weight="0.11"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="New Text"
+        android:id="@+id/textView6"
+        android:layout_weight="0.11"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -42,7 +42,7 @@ public class SuggestionsProvider extends ContentProvider {
     // default query limit
     public static final int DEFAULT_LIMIT = 10;
 
-    private static final String SUGGEST_URL = "http://10.14.124.103:9000/dummy/";
+    private static final String SUGGEST_URL = "http://10.14.119.110:9000/dummy/";
 
     // the URI matcher
     private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);

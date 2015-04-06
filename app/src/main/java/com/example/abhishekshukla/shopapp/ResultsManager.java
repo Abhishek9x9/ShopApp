@@ -27,6 +27,8 @@ import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.abhishekshukla.shopapp.dto.Product;
 import com.example.abhishekshukla.shopapp.util.UIUtil;
 import com.example.abhishekshukla.shopapp.provider.*;
 /**
@@ -37,15 +39,15 @@ public class ResultsManager {
     private static final int ISS_LOADER = 1;
     private final SearchActivity mParentActivity;
     private final ListView mListView;
-    private final TextView mCartTextView;
     private final StoreSearchLoader mStoreSearchLoader;
 
-    public ResultsManager(SearchActivity parentActivity, ListView listView, TextView cartTextView) {
+    public static final String PRODUCT_CLICKED = "product.clicked";
+
+    public ResultsManager(SearchActivity parentActivity, ListView listView) {
         mParentActivity = parentActivity;
         mListView = listView;
         mListView.setDividerHeight(0);
         mStoreSearchLoader = new StoreSearchLoader ();
-        mCartTextView = cartTextView;
     }
     
     /**
@@ -62,7 +64,6 @@ public class ResultsManager {
      */
     public void notifyDataUpdated (Cursor cursor) {
         StoreSearchAdapter adapter = new StoreSearchAdapter (mParentActivity, cursor, false);
-        mCartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
         mParentActivity.setHeaderVisibility((cursor != null && cursor.getCount() > 0) ? View.VISIBLE : View.GONE);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(adapter);
@@ -127,11 +128,29 @@ public class ResultsManager {
             mContext = context;
         }
 
+        /**
+         *
+         * @param parent
+         * @param view
+         * @param position
+         * @param id
+         */
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             UIUtil.closeSoftKeyboard(view);
-            mCartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
             mCursor.moveToPosition(position);
+
+            Product product = new Product();
+            product.setId(Long.parseLong(mCursor.getString(0)));
+            product.setTitle(mCursor.getString(1));
+            product.setBrand(mCursor.getString(2));
+            product.setImageUrl(mCursor.getString(3));
+            product.setPrice(mCursor.getString(4));
+            product.setAbout(mCursor.getString(5));
+
+            Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
+            intent.putExtra(PRODUCT_CLICKED, product);
+            view.getContext().startActivity(intent);
         }
 
         @Override
