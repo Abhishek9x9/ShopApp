@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.*;
+import android.widget.Toast;
 
 import com.example.abhishekshukla.shopapp.dto.Product;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
@@ -46,6 +47,8 @@ public class ItemDetailActivity  extends Activity{
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 UserCart.getInstance().addItem(product);
+                Toast.makeText(getApplicationContext(), product.getTitle() + " added in the cart",
+                        Toast.LENGTH_LONG).show();
                 cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
             }
         });

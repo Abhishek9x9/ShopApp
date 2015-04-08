@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by abhishekshukla on 1/4/15.
  */
 
-public class Product implements Serializable{
+public class Product implements Serializable {
     long id;
     String url;
     String brand;

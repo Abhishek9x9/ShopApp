@@ -27,32 +27,17 @@ class ImageCache extends LruCache<String, Bitmap>{
     private static final String IMAGE_FILE_POSTFIX = ".png";
     private final boolean mIsDiskCache;
 
-    /**
-     * Create an ImageCache instance.
-     * Save the image to disk asynchronously if isDiskCache is true.
-     * 
-     * @param imageCacheCapacity
-     * @param isDiskCache
-     */
+
     public ImageCache(final int imageCacheCapacity, final boolean isDiskCache ) {
         super(imageCacheCapacity);
         mIsDiskCache = isDiskCache;
     }
 
-    /**
-     * Create an ImageCache instance.
-     * Save the image to disk asynchronously if isDiskCache is true.
-     * The capacity of ImageCache created is 30.
-     * 
-     * @param isDiskCache
-     */
     public ImageCache(final boolean isDiskCache ) {
         this(DEFAULT_IMAGECACHE_CAPACITY, isDiskCache);
     }
     
-    /**
-     * Remove the image with specific key from disk.
-     */
+
     @Override
     public void entryRemoved(final boolean evicted, final String key, final Bitmap oldValue, final Bitmap newValue) {
         if (newValue == null) {
@@ -68,13 +53,7 @@ class ImageCache extends LruCache<String, Bitmap>{
     protected int sizeOf(String key, Bitmap value) {
         return 1;
     }
-    
-    /**
-     * Save image to disk.
-     * We have to mark images files to world readable so that Launcher process can load these files.
-     * @param key
-     * @param value
-     */
+
     private void saveImageToDisk(final String key, final Bitmap value) {
 
         FileOutputStream fos = null;
@@ -97,30 +76,16 @@ class ImageCache extends LruCache<String, Bitmap>{
         return Base64.encodeToString(data.getBytes(), Base64.NO_WRAP).replace('/', '_');
     }
     
-    /**
-     * Put image in cache, and save it to disk synchronously.
-     * Saving image to disk might be a time-consuming process, please DON'T call this method in UI thread.
-     *
-     * Ideal way is overriding put() method of LruCache, but put() method in LruCache is declared a final method,
-     * so I have to implement this method.
-     * @param key
-     * @param value
-     * @return
-     */
+
     public Bitmap putImage(final String key, final Bitmap value) {
-        // key might be content provider url which is confidential in some cases
-        // so I don't want to expose key in shared preference, digest it in md5.
+
         final String digestKey = generateDigest(key);
         if (mIsDiskCache)
             saveImageToDisk(digestKey, value);
         return put(digestKey, value);
     }
     
-    /**
-     * Get image corresponding to the key.
-     * @param key
-     * @return
-     */
+
     public Bitmap getImage(final String key) {
         final String digestKey = generateDigest(key);
         return get(digestKey);

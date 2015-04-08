@@ -20,7 +20,7 @@ import com.example.abhishekshukla.shopapp.R;
 import com.example.abhishekshukla.shopapp.ShopApplication;
 
 /**
- * Manage loading image from content provider or web address.
+ * Manage loading image web address.
  *
  * We use LruCache to cache all received images.
  *
@@ -98,13 +98,10 @@ public final class ImageLoader {
         boolean waitForLock = false;
         Object obj = null;
         synchronized(mPendingBitmap) {
-            // check if the current image is pending to fetch.
             obj = mPendingBitmap.get(url);
             if (obj != null)
-                // wait to finish fetching image.
                 waitForLock = true;
             else
-                // insert to pendling list.
                 mPendingBitmap.put(url, new Object());
         }
 
@@ -118,7 +115,6 @@ public final class ImageLoader {
                 }
                 if (ShopApplication.DEBUG)
                     Log.d(TAG, Thread.currentThread().getId() + "notified wait: " + url);
-                // get bitmap from cache again
                 return mImageCache.getImage(key);
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage(), e);
@@ -194,7 +190,6 @@ public final class ImageLoader {
             connection.setReadTimeout(HTTP_TIMEOUT);
             connection.setConnectTimeout(HTTP_TIMEOUT);
             connection.connect();
-            // fix a known android bug: code.google.com/p/android/issues/detail?id=6066
             in = new FlushedInputStream(connection.getInputStream());
             return BitmapFactory.decodeStream(in);
         } catch (Exception e) {
@@ -257,13 +252,13 @@ public final class ImageLoader {
         private final String mkey;
         private final boolean mForceReload;
 
-        public LoadImageRunnable(final String uri, final int width, final int height, final ImageLoaderSubscriber subscriber, final String asin, final boolean forceReload)
+        public LoadImageRunnable(final String uri, final int width, final int height, final ImageLoaderSubscriber subscriber, final String key, final boolean forceReload)
         {
             mUri = uri;
             mSubscriber = subscriber;
             mWidth = width;
             mHeight = height;
-            mkey = asin;
+            mkey = key;
             mForceReload = forceReload;
         }
 
@@ -283,6 +278,10 @@ public final class ImageLoader {
         }
     }
 
+
+    /**
+     *
+     */
     public static interface ImageLoaderSubscriber {
         public void onLoadStarted();
         public void onLoadCompleted(final Bitmap bitmap);

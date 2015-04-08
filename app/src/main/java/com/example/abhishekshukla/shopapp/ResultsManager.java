@@ -56,12 +56,7 @@ public class ResultsManager {
     public void closePendingLoaders (){
         mStoreSearchLoader.close();
     }
-    
-    /**
-     * Notify data updated when performing Store search
-     * @param cursor
-     *        The cursor of results.
-     */
+
     public void notifyDataUpdated (Cursor cursor) {
         StoreSearchAdapter adapter = new StoreSearchAdapter (mParentActivity, cursor, false);
         mParentActivity.setHeaderVisibility((cursor != null && cursor.getCount() > 0) ? View.VISIBLE : View.GONE);
@@ -74,11 +69,6 @@ public class ResultsManager {
     }
     
 
-    /**
-     * Store search loader will retrieve A9 search suggestions in background
-     * thread.
-     * 
-     */
     private class StoreSearchLoader implements LoaderCallbacks<Cursor> {
         
         private String mQuery;
