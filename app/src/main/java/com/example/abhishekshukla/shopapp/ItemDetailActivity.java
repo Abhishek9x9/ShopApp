@@ -1,9 +1,9 @@
 package com.example.abhishekshukla.shopapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,11 +14,12 @@ import android.widget.Toast;
 import com.example.abhishekshukla.shopapp.dto.Product;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 import com.example.abhishekshukla.shopapp.util.Util;
+import com.example.abhishekshukla.shopapp.util.ImageSub;
 
 /**
  * Created by abhishekshukla on 3/4/15.
  */
-public class ItemDetailActivity  extends Activity{
+public class ItemDetailActivity  extends Activity {
 
     private Product product;
     private TextView cartTextView;
@@ -44,18 +45,27 @@ public class ItemDetailActivity  extends Activity{
         textView5 = (TextView) findViewById(R.id.textView5);
         textView6 = (TextView) findViewById(R.id.textView6);
 
+        ImageView cartView = (ImageView) findViewById(R.id.item_image_cart);
+
+        cartView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CartActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 UserCart.getInstance().addItem(product);
                 Toast.makeText(getApplicationContext(), product.getTitle() + " added in the cart",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT).show();
                 cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
             }
         });
 
         if(null != getIntent() && null!= getIntent().getSerializableExtra(ResultsManager.PRODUCT_CLICKED)) {
             product = (Product) getIntent().getSerializableExtra(ResultsManager.PRODUCT_CLICKED);
-            Bitmap bitmap =  ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView),"" + product.getId(), false);
+            Bitmap bitmap =  ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
             if(null != bitmap)
             {
                 imageView.setImageBitmap(bitmap);
@@ -68,7 +78,7 @@ public class ItemDetailActivity  extends Activity{
         }
         if (savedInstanceState != null && null != savedInstanceState.getSerializable(ResultsManager.PRODUCT_CLICKED)) {
             product = (Product) savedInstanceState.getSerializable(ResultsManager.PRODUCT_CLICKED);
-            Bitmap bitmap = ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView),"" + product.getId(), false);
+            Bitmap bitmap = ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
             if(null != bitmap)
             {
                 imageView.setImageBitmap(bitmap);
@@ -92,40 +102,13 @@ public class ItemDetailActivity  extends Activity{
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected  void  onResume () {
+        super.onResume();
+        cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
     }
 
-    private class ImageSub implements ImageLoader.ImageLoaderSubscriber
-    {
-        private ImageView imageView;
-
-        public ImageSub(ImageView imageView) {
-            this.imageView = imageView;
-        }
-
-        public void onLoadStarted()
-        {
-            Log.d("ImageLoader", "download start");
-        }
-        public void onLoadCompleted(final Bitmap bitmap)
-        {
-            Log.d("ImageLoader", "download complete");
-            Runnable runnable = new Runnable() {
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        public void run()
-                        {
-                            imageView.setImageBitmap(bitmap);
-                        }
-                    });
-                }
-            };
-            runnable.run();
-        }
-        public void onLoadFailed()
-        {
-            Log.e("ImageLoader", "download failed");
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

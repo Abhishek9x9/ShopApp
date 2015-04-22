@@ -14,4 +14,7 @@
     <dimen name="search_header_height">48dp</dimen>
     <dimen name="item_image_width">200px</dimen>
     <dimen name="item_image_height">360px</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

@@ -14,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -61,6 +62,16 @@ public class SearchActivity extends Activity {
             mQueryEditBox.setText(initialQuery);
             mQueryEditBox.setSelection(initialQuery.length());
         }
+
+        ImageView cartView = (ImageView) findViewById(R.id.search_image_cart);
+
+        cartView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CartActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
         cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
     }
 

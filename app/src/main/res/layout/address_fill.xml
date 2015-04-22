@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/card_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add a New Address"
+        android:textSize="25sp"
+        android:paddingTop="25dp"
+        android:textColor="@android:color/black"
+        android:paddingLeft="@dimen/padding_double"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pincode *"
+        android:textColor="@android:color/darker_gray"
+        android:paddingTop="@dimen/padding_double"
+        android:paddingLeft="@dimen/padding_double"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/pincode_edit_text"
+        android:textColor="@android:color/darker_gray"
+        android:inputType="number"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingTop="@dimen/padding_half"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name *"
+        android:textColor="@android:color/darker_gray"
+        android:paddingTop="@dimen/padding_double"
+        android:paddingLeft="@dimen/padding_double"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/name_edit_text"
+        android:textColor="@android:color/darker_gray"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingTop="@dimen/padding_half"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address *"
+        android:textColor="@android:color/darker_gray"
+        android:paddingTop="@dimen/padding_double"
+        android:paddingLeft="@dimen/padding_double"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/address_edit_text"
+        android:textColor="@android:color/darker_gray"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingTop="@dimen/padding_half"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Locality/Town *"
+        android:textColor="@android:color/darker_gray"
+        android:paddingTop="@dimen/padding_double"
+        android:paddingLeft="@dimen/padding_double"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/town_edit_text"
+        android:textColor="@android:color/darker_gray"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingTop="@dimen/padding_half"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight= "1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="City/District *"
+                android:textColor="@android:color/darker_gray"
+                android:paddingTop="@dimen/padding_double"
+                android:paddingLeft="@dimen/padding_double"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/city_edit_text"
+                android:textColor="@android:color/darker_gray"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingTop="@dimen/padding_half"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight= "1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="State *"
+                android:textColor="@android:color/darker_gray"
+                android:paddingTop="@dimen/padding_double"
+                android:paddingLeft="@dimen/padding_double"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/state_edit_text"
+                android:textColor="@android:color/darker_gray"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingTop="@dimen/padding_half"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mobile Number *"
+        android:textColor="@android:color/darker_gray"
+        android:paddingTop="@dimen/padding_double"
+        android:paddingLeft="@dimen/padding_double"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/mobile_edit_text"
+        android:inputType="number"
+        android:textColor="@android:color/darker_gray"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingTop="@dimen/padding_half"/>
+
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/address_save_button"
+        android:text="Save"
+        android:textSize="15dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_button_style"
+        android:layout_margin="@dimen/padding_double"/>
+</LinearLayout>
+
+</ScrollView>

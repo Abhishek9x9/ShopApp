@@ -6,4 +6,8 @@
     <string name="search_suggestions">Suggestions</string>
     <string name="search_label">Search</string>
     <string name="search_hint">Search Here</string>
+    <string name="title_activity_cart">CartActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_new_address">NewAddress</string>
 </resources>
