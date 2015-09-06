@@ -24,6 +24,8 @@ import java.net.URL;
 import org.apache.commons.io.IOUtils;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -98,32 +100,44 @@ public class SuggestionsProvider extends ContentProvider {
     }
 
     private Cursor getSuggestionsFromService(String query, int limit, MatrixCursor cursor) {
-        try {
+      //  try {
             int numberOfRows = 0;
-            Gson gson = new Gson();
-            URL url = new URL(SUGGEST_URL + query);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            try {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                StringWriter writer = new StringWriter();
-                IOUtils.copy(in, writer, "UTF-8");
-                String bodyContent = writer.toString();
-                List<Product> products = gson.fromJson(bodyContent, new TypeToken<List<Product>>(){}.getType());
+            //Gson gson = new Gson();
+            //URL url = new URL(SUGGEST_URL + query);
+            //HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            //try {
+              //  InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                //StringWriter writer = new StringWriter();
+                //IOUtils.copy(in, writer, "UTF-8");
+                //String bodyContent = writer.toString();
+                //List<Product> products = gson.fromJson(bodyContent, new TypeToken<List<Product>>(){}.getType());
+                List<Product> products= new ArrayList<>();
+                for(int i = 0 ; i < 4 ; i++){
+                    Product product = new Product();
+                    product.setId(i);
+                    product.setAbout("This is about : " + i);
+                    product.setBrand("Brand: " + i);
+                    product.setPrice("" + i );
+                    product.setTitle("Title" + i);
+                    product.setImageUrl("https://dtgxwmigmg3gc.cloudfront.net/files/54100714c566d7637d001751-icon-256x256.png");
+
+                    products.add(product);
+                }
                 for(Product product : products) {
                     if(numberOfRows >= limit)
                         return cursor;
                     cursor.addRow(createRows(product));
                     numberOfRows++;
                 }
-            }
-            finally {
-                    urlConnection.disconnect();
-            }
-        } catch (UnsupportedEncodingException e) {
-            Log.e(TAG, "Error", e);
-        } catch (IOException e) {
-            Log.e(TAG, "Error", e);
-        }
+          //  }
+         //   finally {
+                 //   urlConnection.disconnect();
+        //    }
+//        } catch (UnsupportedEncodingException e) {
+//            Log.e(TAG, "Error", e);
+//        } catch (IOException e) {
+//            Log.e(TAG, "Error", e);
+//        }
         return cursor;
     }
 

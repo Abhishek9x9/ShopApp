@@ -83,7 +83,7 @@ public final class ImageLoader {
         return result;
     }
 
-    private Bitmap loadImage(final String url, final int width, final int height, final String key, final boolean forceReload) throws IllegalArgumentException {
+    public Bitmap loadImage(final String url, final int width, final int height, final String key, final boolean forceReload) throws IllegalArgumentException {
         if ( Util.isEmpty(url) )
             throw new IllegalArgumentException(TAG + ": image url can not be null or empty.");
 
@@ -163,7 +163,7 @@ public final class ImageLoader {
         return Bitmap.createScaledBitmap(orgBmp, (int) (orgBmp.getWidth() * factorToUse), (int) (orgBmp.getHeight() * factorToUse), false);
     }
 
-    private Bitmap getRawBitmap(final String bitmapUri, final int width, final int height) {
+    public Bitmap getRawBitmap(final String bitmapUri, final int width, final int height) {
         Bitmap bitmap = null;
         final String extraLogString = "loading image: ";
         try {
@@ -193,7 +193,7 @@ public final class ImageLoader {
             in = new FlushedInputStream(connection.getInputStream());
             return BitmapFactory.decodeStream(in);
         } catch (Exception e) {
-            Log.e(TAG, "getBitmapFromUri: " + bitmapUrl , e);
+            Log.e(TAG, "getBitmapFromUri: " + bitmapUrl + e.getMessage(), e);
             return null;
         } finally {
             if (in != null)

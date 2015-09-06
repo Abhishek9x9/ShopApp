@@ -54,7 +54,14 @@
             android:name=".AddressActivity"
             android:label="AddressActivity" >
         </activity>
-
+        <activity
+            android:name=".carousel.CartDetailCarouselAcitivity"
+            android:label="@string/title_activity_cover_flow_example2"
+            android:parentActivityName=".SearchActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.abhishekshukla.shopapp.SearchActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -11,9 +11,9 @@ import android.widget.TextView;
 import android.view.*;
 import android.widget.Toast;
 
+import com.example.abhishekshukla.shopapp.carousel.CartDetailCarouselAcitivity;
 import com.example.abhishekshukla.shopapp.dto.Product;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
-import com.example.abhishekshukla.shopapp.util.Util;
 import com.example.abhishekshukla.shopapp.util.ImageSub;
 
 /**
@@ -49,7 +49,7 @@ public class ItemDetailActivity  extends Activity {
 
         cartView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), CartActivity.class);
+                Intent intent = new Intent(view.getContext(), CartDetailCarouselAcitivity.class);
                 view.getContext().startActivity(intent);
             }
         });
@@ -65,7 +65,8 @@ public class ItemDetailActivity  extends Activity {
 
         if(null != getIntent() && null!= getIntent().getSerializableExtra(ResultsManager.PRODUCT_CLICKED)) {
             product = (Product) getIntent().getSerializableExtra(ResultsManager.PRODUCT_CLICKED);
-            Bitmap bitmap =  ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
+            //Bitmap bitmap =  ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
+            Bitmap bitmap =  ImageLoader.getInstance().loadImageAsync(product.getImageUrl(), new ImageSub(imageView, this), "" + product.getId(), false);
             if(null != bitmap)
             {
                 imageView.setImageBitmap(bitmap);
@@ -78,7 +79,8 @@ public class ItemDetailActivity  extends Activity {
         }
         if (savedInstanceState != null && null != savedInstanceState.getSerializable(ResultsManager.PRODUCT_CLICKED)) {
             product = (Product) savedInstanceState.getSerializable(ResultsManager.PRODUCT_CLICKED);
-            Bitmap bitmap = ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
+            Bitmap bitmap =  ImageLoader.getInstance().loadImageAsync(product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
+            //Bitmap bitmap = ImageLoader.getInstance().loadImageAsync("http:" + product.getImageUrl(), new ImageSub(imageView, this),"" + product.getId(), false);
             if(null != bitmap)
             {
                 imageView.setImageBitmap(bitmap);

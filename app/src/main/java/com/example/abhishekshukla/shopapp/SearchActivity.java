@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import android.widget.Toast;
+
 import com.example.abhishekshukla.shopapp.R;
 import com.example.abhishekshukla.shopapp.util.Util;
 import com.example.abhishekshukla.shopapp.util.UIUtil;
@@ -53,6 +55,7 @@ public class SearchActivity extends Activity {
                 String keyWord = mQueryEditBox.getText().toString().trim();
                 if (!Util.isEmpty(keyWord)) {
                     // do action here
+                   // Toast.makeText(getApplicationContext(), "Entered search string: " + keyWord, Toast.LENGTH_SHORT).show();
                 }
             }
         });
