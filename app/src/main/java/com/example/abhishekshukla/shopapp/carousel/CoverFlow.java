@@ -342,12 +342,13 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
     }
 
     @Override
-    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
+    protected ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         /*
          * Gallery expects Gallery.LayoutParams.
          */
-        return new CoverFlow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+        CoverFlow.LayoutParams layoutParams =  new CoverFlow.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
+        return layoutParams;
     }
 
     @Override
@@ -932,7 +933,7 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
         int myHeight = duringLayout ? getMeasuredHeight() : getHeight();
         int childHeight = duringLayout ? child.getMeasuredHeight() : child.getHeight();
 
-        int childTop = 0;
+        int childTop = 30;
 
         switch (mGravity) {
             case Gravity.TOP:
@@ -1498,7 +1499,7 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
      * Transformation information along with previous position/transformation
      * info.
      */
-    public static class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
         }

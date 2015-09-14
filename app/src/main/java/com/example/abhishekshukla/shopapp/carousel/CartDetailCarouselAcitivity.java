@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -12,16 +13,23 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.os.StrictMode;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.abhishekshukla.shopapp.R;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Source of this code is - http://www.inter-fuser.com/2010/01/android-coverflow-widget.html
@@ -43,26 +51,28 @@ public class CartDetailCarouselAcitivity extends Activity {
         CoverFlow coverFlow;
         coverFlow = new CoverFlow(this);
 
-        coverFlow.setAdapter(new ImageAdapter(this));
-
         ImageAdapter coverImageAdapter = new ImageAdapter(this);
 
         coverImageAdapter.createReflectedImages();
 
         coverFlow.setAdapter(coverImageAdapter);
-
+        coverFlow.setOnItemSelectedListener(new OnProductFocusedListener(coverImageAdapter, getIntent()));
         coverFlow.setSpacing(-15);
         coverFlow.setSelection(8, true);
-        coverFlow.setGravity(Gravity.CENTER_VERTICAL);
-
+        coverFlow.setGravity(Gravity.TOP);
         setContentView(R.layout.activity_cart_details_carousel);
 
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
-        addContentView(coverFlow, params );
+        CoverFlow.LayoutParams params = new CoverFlow.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        addContentView(coverFlow, params);
 
-        //Use this if you want to use XML layout file
-        //setContentView(R.layout.activity_cart_details_carousel);
-        //coverFlow =  (CoverFlow) findViewById(R.id.coverflow);
+        Button button = (Button)findViewById(R.id.btnCheckout);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Checkout has been clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button.setFocusable(true);
     }
 
     public class ImageAdapter extends BaseAdapter {
@@ -84,15 +94,19 @@ public class CartDetailCarouselAcitivity extends Activity {
         };
 
         private ImageView[] mImages;
+        private View[] views;
+        private Map<ImageView, TextView> imageViewTextViewMap;
 
         public ImageAdapter(Context c) {
             mContext = c;
             mImages = new ImageView[mImageIds.length];
+            views = new ViewGroup[mImageIds.length];
+            this.imageViewTextViewMap = new HashMap<>();
         }
 
         public boolean createReflectedImages() {
             //The gap we want between the reflection and the original image
-            final int reflectionGap = 4;
+            final int reflectionGap = 0;
 
 
             int index = 0;
@@ -112,11 +126,11 @@ public class CartDetailCarouselAcitivity extends Activity {
 
                 //Create a Bitmap with the flip matrix applied to it.
                 //We only want the bottom half of the image
-                Bitmap reflectionImage = Bitmap.createBitmap(originalImage, 0, height / 2, width, height / 2, matrix, false);
+                Bitmap reflectionImage = Bitmap.createBitmap(originalImage, 0, height / 4, width, height / 4, matrix, false);
 
                 //Create a new bitmap with same width but taller to fit reflection
                 Bitmap bitmapWithReflection = Bitmap.createBitmap(width
-                        , (height + height / 2), Bitmap.Config.ARGB_8888);
+                        , (height), Bitmap.Config.ARGB_8888);
 
                 //Create a new Canvas with the bitmap that's big enough for
                 //the image plus gap plus reflection
@@ -127,7 +141,7 @@ public class CartDetailCarouselAcitivity extends Activity {
                 Paint deafaultPaint = new Paint();
                 canvas.drawRect(0, height, width, height + reflectionGap, deafaultPaint);
                 //Draw in the reflection
-                canvas.drawBitmap(reflectionImage, 0, height + reflectionGap, null);
+                //canvas.drawBitmap(reflectionImage, 0, height + reflectionGap, null);
 
                 //Create a shader that is a linear gradient that covers the reflection
                 Paint paint = new Paint();
@@ -142,11 +156,62 @@ public class CartDetailCarouselAcitivity extends Activity {
                 canvas.drawRect(0, height, width,
                         bitmapWithReflection.getHeight() + reflectionGap, paint);
 
+//                TextView tv = new TextView(mContext);
+//                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                tv.setLayoutParams(layoutParams);
+//                tv.setText("Colgate: " + index);
+//                tv.setTextColor(Color.BLACK);
+//                tv.setBackgroundColor(Color.TRANSPARENT);
+//                //tv.setVisibility(View.GONE);
+//
+//                Bitmap testB;
+//
+//                testB = Bitmap.createBitmap(80, 100, Bitmap.Config.ARGB_8888);
+//                Canvas c = new Canvas(testB);
+//                tv.layout(0, 0, 80, 100);
+//                tv.draw(c);
+//
+//                canvas.drawBitmap(testB, 10, height + height/2, null);
+
+
                 ImageView imageView = new ImageView(mContext);
                 imageView.setImageBitmap(bitmapWithReflection);
-                imageView.setLayoutParams(new CoverFlow.LayoutParams(400, 600));
+                CoverFlow.LayoutParams layoutParams = new CoverFlow.LayoutParams(500, 600);
+                imageView.setLayoutParams(layoutParams);
                 imageView.setScaleType(ImageView.ScaleType.MATRIX);
-                mImages[index++] = imageView;
+                imageView.setPadding(0, 100, 0, 0 );
+                mImages[index] = imageView;
+
+//                ImageView imageView = (ImageView)findViewById(R.id.item_image_corousel);
+//                imageView.setImageBitmap(bitmapWithReflection);
+//                imageView.setScaleType(ImageView.ScaleType.MATRIX);
+//                mImages[index] = imageView;
+
+//                View parentView = findViewById(R.id.image_review);
+//                parentView.setLayoutParams(new CoverFlow.LayoutParams(400, 600));
+
+//                ImageView imageViewCross = new ImageView(mContext);
+//                imageViewCross.setImageDrawable(getDrawable(R.drawable.abc_btn_check_to_on_mtrl_015));
+//                //ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(mContext, )
+//                CoverFlow.LayoutParams params = new CoverFlow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                params.gravity = Gravity.CENTER_HORIZONTAL;
+//                imageViewCross.setLayoutParams(params);
+
+//
+                TextView textView = new TextView(mContext);
+                textView.setText("Colgate: " + index);
+                textView.setLayoutParams(new CoverFlow.LayoutParams(300, 300));
+
+//                CustomLayout customLayout = new CustomLayout(mContext);
+//                customLayout.addView(imageView);
+//                customLayout.addView(imageViewCross);
+                //customLayout.setLayoutParams(new CoverFlow.LayoutParams(600, 800));
+//                views[index] = parentView;
+
+                index++;
+                imageViewTextViewMap.put(imageView, textView);
+
+               // ViewGroup viewGroup = new ViewGroup(mContext);
 
             }
             return true;
@@ -174,8 +239,16 @@ public class CartDetailCarouselAcitivity extends Activity {
             //return i;
 
             return mImages[position];
+            //return views[position];
         }
 
+        public Map<ImageView, TextView> getFlipViews(){
+            return imageViewTextViewMap;
+        }
+
+        public ImageView[] getOriginalViews(){
+            return mImages;
+        }
         /**
          * Returns the size (0.0f to 1.0f) of the views
          * depending on the 'offset' to the center.

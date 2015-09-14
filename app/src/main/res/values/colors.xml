@@ -9,5 +9,20 @@
     <color name="search_horizontal_divider_end">#BF3C3C3C</color>
     <color name="widget_logo_background_gradient_start">#ff161616</color>
     <color name="widget_logo_background_gradient_end">#ff000000</color>
+    <color name="NiceButtonStartColor">#4AA02C</color>
+    <color name="NiceButtonEndColor">#348017</color>
+    <color name="NiceButtonDisabledStartColor">#565051</color>
+    <color name="NiceButtonDisabledEndColor">#736F6E</color>
+    <color name="NiceButtonBorderColor">#254117</color>
+    <color name="transparent_background">#00000000</color>
+    <color name="background_color_green">#e56bbe7a</color>
+    <color name="background_color_black">#bb000000</color>
+    <color name="background_color_blue">#e553c5f8</color>
+    <color name="background_color_pink">#e5E7b8f1</color>
+    <color name="background_color_yellow">#e5d29b36</color>
+    <color name="background_color_brown">#e54c2316</color>
 
+    <color name="outside_color_trans">#00000000</color>
+    <color name="outside_color_gray">#66444444</color>
+    <color name="outside_color_pink">#66E7b8f1</color>
 </resources>
