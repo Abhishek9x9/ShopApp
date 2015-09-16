@@ -48,7 +48,7 @@ public abstract class CoverAbsSpinner extends CoverAdapterView<SpinnerAdapter> {
     int mWidthMeasureSpec;
     boolean mBlockLayoutRequests;
     int mSelectionLeftPadding = 0;
-    int mSelectionTopPadding = 0;
+    int mSelectionTopPadding = 110;
     int mSelectionRightPadding = 0;
     int mSelectionBottomPadding = 0;
     Rect mSpinnerPadding = new Rect();

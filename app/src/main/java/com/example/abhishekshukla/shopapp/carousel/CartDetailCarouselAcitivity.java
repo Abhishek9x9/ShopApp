@@ -25,10 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.abhishekshukla.shopapp.R;
+import com.example.abhishekshukla.shopapp.UserCart;
+import com.example.abhishekshukla.shopapp.dto.CartItem;
+import com.example.abhishekshukla.shopapp.dto.Product;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 
 import java.io.FileInputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,20 +51,24 @@ public class CartDetailCarouselAcitivity extends Activity {
         }
 
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cart_details_carousel);
+        TextView cartTextView = (TextView) findViewById(R.id.itemDetailCartTextView);
+        cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
 
         CoverFlow coverFlow;
         coverFlow = new CoverFlow(this);
 
-        ImageAdapter coverImageAdapter = new ImageAdapter(this);
+        ImageAdapter coverImageAdapter = new ImageAdapter(this, UserCart.getInstance().getAllProducts());
 
         coverImageAdapter.createReflectedImages();
 
+        View productView  = findViewById(R.id.product_text);
+
         coverFlow.setAdapter(coverImageAdapter);
-        coverFlow.setOnItemSelectedListener(new OnProductFocusedListener(coverImageAdapter, getIntent()));
+        coverFlow.setOnItemSelectedListener(new OnProductFocusedListener(coverImageAdapter, getIntent(), productView));
         coverFlow.setSpacing(-15);
-        coverFlow.setSelection(8, true);
+        coverFlow.setSelection(UserCart.getInstance().getCartSize()-1, true);
         coverFlow.setGravity(Gravity.TOP);
-        setContentView(R.layout.activity_cart_details_carousel);
 
         CoverFlow.LayoutParams params = new CoverFlow.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         addContentView(coverFlow, params);
@@ -78,39 +86,38 @@ public class CartDetailCarouselAcitivity extends Activity {
     public class ImageAdapter extends BaseAdapter {
         int mGalleryItemBackground;
         private Context mContext;
+        private List<CartItem> cartItems;
 
         private FileInputStream fis;
 
-        private String[] mImageIds = {
-                "http://bigbasket.com/media/uploads/p/m/100008139_4-brown-polson-corn-flour.jpg",
-                "http://bigbasket.com/media/uploads/p/l/100285920_1-eagle-yeast-active-dry.jpg",
-                "http://bigbasket.com/media/uploads/p/l/100349327_1-betty-crocker-mix-pancake.jpg",
-                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
-                "http://bigbasket.com/media/uploads/p/l/100005747_2-weikfield-powder-cocoa.jpg",
-                "http://bigbasket.com/media/uploads/p/l/40008378_1-weikfield-custard-powder-vanilla-flavour.jpg",
-                "http://bigbasket.com/media/uploads/p/l/265970_1-mtr-mix-gulab-jamun.jpg",
-                "http://bigbasket.com/media/uploads/p/l/100012255_1-pillsbury-cooker-cake-chocolate-eggless.jpg",
-                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
-        };
+//        private String[] mImageIds = {
+//                "http://bigbasket.com/media/uploads/p/m/100008139_4-brown-polson-corn-flour.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/100285920_1-eagle-yeast-active-dry.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/100349327_1-betty-crocker-mix-pancake.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/100005747_2-weikfield-powder-cocoa.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/40008378_1-weikfield-custard-powder-vanilla-flavour.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/265970_1-mtr-mix-gulab-jamun.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/100012255_1-pillsbury-cooker-cake-chocolate-eggless.jpg",
+//                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
+//        };
 
         private ImageView[] mImages;
-        private View[] views;
-        private Map<ImageView, TextView> imageViewTextViewMap;
 
-        public ImageAdapter(Context c) {
+        public ImageAdapter(Context c, List<CartItem> cartItems) {
             mContext = c;
-            mImages = new ImageView[mImageIds.length];
-            views = new ViewGroup[mImageIds.length];
-            this.imageViewTextViewMap = new HashMap<>();
+            mImages = new ImageView[cartItems.size()];
+            this.cartItems = cartItems;
         }
 
         public boolean createReflectedImages() {
             //The gap we want between the reflection and the original image
-            final int reflectionGap = 0;
+            final int reflectionGap = 4;
 
 
             int index = 0;
-            for (String imageUrl : mImageIds) {
+            for (CartItem cartItem : cartItems) {
+                String imageUrl = cartItem.getImageUrl();
                 final int widthOriginal = mContext.getResources().getDimensionPixelSize(R.dimen.item_image_width);
                 final int heightOriginal = mContext.getResources().getDimensionPixelSize(R.dimen.item_image_height);
                 Bitmap originalImage = ImageLoader.getInstance().loadImage(imageUrl, widthOriginal, heightOriginal,
@@ -156,77 +163,33 @@ public class CartDetailCarouselAcitivity extends Activity {
                 canvas.drawRect(0, height, width,
                         bitmapWithReflection.getHeight() + reflectionGap, paint);
 
-//                TextView tv = new TextView(mContext);
-//                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                tv.setLayoutParams(layoutParams);
-//                tv.setText("Colgate: " + index);
-//                tv.setTextColor(Color.BLACK);
-//                tv.setBackgroundColor(Color.TRANSPARENT);
-//                //tv.setVisibility(View.GONE);
-//
-//                Bitmap testB;
-//
-//                testB = Bitmap.createBitmap(80, 100, Bitmap.Config.ARGB_8888);
-//                Canvas c = new Canvas(testB);
-//                tv.layout(0, 0, 80, 100);
-//                tv.draw(c);
-//
-//                canvas.drawBitmap(testB, 10, height + height/2, null);
-
 
                 ImageView imageView = new ImageView(mContext);
                 imageView.setImageBitmap(bitmapWithReflection);
                 CoverFlow.LayoutParams layoutParams = new CoverFlow.LayoutParams(500, 600);
                 imageView.setLayoutParams(layoutParams);
                 imageView.setScaleType(ImageView.ScaleType.MATRIX);
-                imageView.setPadding(0, 100, 0, 0 );
                 mImages[index] = imageView;
 
-//                ImageView imageView = (ImageView)findViewById(R.id.item_image_corousel);
-//                imageView.setImageBitmap(bitmapWithReflection);
-//                imageView.setScaleType(ImageView.ScaleType.MATRIX);
-//                mImages[index] = imageView;
-
-//                View parentView = findViewById(R.id.image_review);
-//                parentView.setLayoutParams(new CoverFlow.LayoutParams(400, 600));
-
-//                ImageView imageViewCross = new ImageView(mContext);
-//                imageViewCross.setImageDrawable(getDrawable(R.drawable.abc_btn_check_to_on_mtrl_015));
-//                //ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(mContext, )
-//                CoverFlow.LayoutParams params = new CoverFlow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                params.gravity = Gravity.CENTER_HORIZONTAL;
-//                imageViewCross.setLayoutParams(params);
-
-//
                 TextView textView = new TextView(mContext);
                 textView.setText("Colgate: " + index);
                 textView.setLayoutParams(new CoverFlow.LayoutParams(300, 300));
 
-//                CustomLayout customLayout = new CustomLayout(mContext);
-//                customLayout.addView(imageView);
-//                customLayout.addView(imageViewCross);
-                //customLayout.setLayoutParams(new CoverFlow.LayoutParams(600, 800));
-//                views[index] = parentView;
-
-                index++;
-                imageViewTextViewMap.put(imageView, textView);
-
-               // ViewGroup viewGroup = new ViewGroup(mContext);
-
+               index++;
             }
             return true;
         }
 
         public int getCount() {
-            return mImageIds.length;
+            return this.cartItems.size();
         }
 
         public Object getItem(int position) {
-            return position;
+            return cartItems.get(position);
         }
 
         public long getItemId(int position) {
-            return position;
+            return cartItems.get(position).getId();
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -242,13 +205,6 @@ public class CartDetailCarouselAcitivity extends Activity {
             //return views[position];
         }
 
-        public Map<ImageView, TextView> getFlipViews(){
-            return imageViewTextViewMap;
-        }
-
-        public ImageView[] getOriginalViews(){
-            return mImages;
-        }
         /**
          * Returns the size (0.0f to 1.0f) of the views
          * depending on the 'offset' to the center.

@@ -933,7 +933,7 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
         int myHeight = duringLayout ? getMeasuredHeight() : getHeight();
         int childHeight = duringLayout ? child.getMeasuredHeight() : child.getHeight();
 
-        int childTop = 30;
+        int childTop = 0;
 
         switch (mGravity) {
             case Gravity.TOP:

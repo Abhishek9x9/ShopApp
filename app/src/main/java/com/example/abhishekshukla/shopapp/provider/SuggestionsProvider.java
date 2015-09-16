@@ -99,6 +99,18 @@ public class SuggestionsProvider extends ContentProvider {
         return getSuggestionsFromService(query, limit, cursor);
     }
 
+            private String[] mImageIds = {
+                "http://bigbasket.com/media/uploads/p/m/100008139_4-brown-polson-corn-flour.jpg",
+                "http://bigbasket.com/media/uploads/p/l/100285920_1-eagle-yeast-active-dry.jpg",
+                "http://bigbasket.com/media/uploads/p/l/100349327_1-betty-crocker-mix-pancake.jpg",
+                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
+                "http://bigbasket.com/media/uploads/p/l/100005747_2-weikfield-powder-cocoa.jpg",
+                "http://bigbasket.com/media/uploads/p/l/40008378_1-weikfield-custard-powder-vanilla-flavour.jpg",
+                "http://bigbasket.com/media/uploads/p/l/265970_1-mtr-mix-gulab-jamun.jpg",
+                "http://bigbasket.com/media/uploads/p/l/100012255_1-pillsbury-cooker-cake-chocolate-eggless.jpg",
+                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
+        };
+
     private Cursor getSuggestionsFromService(String query, int limit, MatrixCursor cursor) {
       //  try {
             int numberOfRows = 0;
@@ -112,14 +124,15 @@ public class SuggestionsProvider extends ContentProvider {
                 //String bodyContent = writer.toString();
                 //List<Product> products = gson.fromJson(bodyContent, new TypeToken<List<Product>>(){}.getType());
                 List<Product> products= new ArrayList<>();
-                for(int i = 0 ; i < 4 ; i++){
+                for(int i = 0 ; i < 6 ; i++){
                     Product product = new Product();
                     product.setId(i);
                     product.setAbout("This is about : " + i);
                     product.setBrand("Brand: " + i);
-                    product.setPrice("" + i );
-                    product.setTitle("Title" + i);
-                    product.setImageUrl("https://dtgxwmigmg3gc.cloudfront.net/files/54100714c566d7637d001751-icon-256x256.png");
+                    product.setPrice("₹" + 80.00 + i);
+                    product.setTitle("Colgate Strong Teeth Toothpaste 200 g: " + i);
+                    product.setSaving("You save ₹ " + 12 +  i);
+                    product.setImageUrl(mImageIds[i]);
 
                     products.add(product);
                 }
