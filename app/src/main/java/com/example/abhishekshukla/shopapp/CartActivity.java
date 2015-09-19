@@ -26,6 +26,7 @@ package com.example.abhishekshukla.shopapp;
  import android.view.View;
  import android.view.ViewGroup;
  import android.widget.Button;
+ import android.widget.ImageView;
  import android.widget.ListView;
  import android.widget.TextView;
  import android.widget.Toast;
@@ -34,6 +35,7 @@ package com.example.abhishekshukla.shopapp;
 
  import com.example.abhishekshukla.shopapp.adapter.GoogleCardsAdapter;
 
+ import com.example.abhishekshukla.shopapp.carousel.CartDetailCarouselAcitivity;
  import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
  import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
  import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeDismissAdapter;
@@ -52,6 +54,15 @@ public class CartActivity extends Activity implements OnDismissCallback {
         setContentView(R.layout.cart_view);
         cartTextView = (TextView) findViewById(R.id.cartTextView);
         ListView listView = (ListView) findViewById(R.id.list_view);
+
+        ImageView caraoselView = (ImageView) findViewById(R.id.item_image_carousel);
+
+        caraoselView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CartDetailCarouselAcitivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
         mGoogleCardsAdapter = new GoogleCardsAdapter(this, UserCart.getInstance().getAllProducts());
         SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
@@ -78,8 +89,9 @@ public class CartActivity extends Activity implements OnDismissCallback {
         Button placeOrderButton = (Button)findViewById(R.id.place_order_button);
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AddressActivity.class);
-                v.getContext().startActivity(intent);
+//                Intent intent = new Intent(v.getContext(), AddressActivity.class);
+//                v.getContext().startActivity(intent);
+                Toast.makeText(v.getContext(), "Checkout is clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -21,7 +21,29 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+            <ImageView
+                android:id="@+id/item_image_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_view_list_white_36dp"
+                android:paddingTop="@dimen/padding_half"
+                android:paddingBottom="@dimen/padding_half"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/item_image_carousel"
+                />
+            <ImageView
+                android:id="@+id/item_image_carousel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_view_carousel_black_36dp"
+                android:paddingTop="@dimen/padding_half"
+                android:paddingBottom="@dimen/padding_half"
+                android:paddingLeft="@dimen/padding"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/item_image_cart"
+                />
             <ImageView
                 android:id="@+id/item_image_cart"
                 android:layout_width="50dp"
@@ -79,8 +101,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
-            android:typeface="sans"
+            android:textSize="18sp"
             android:gravity="center_horizontal"/>
 
         <TextView
@@ -89,7 +110,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="14sp"
-            android:typeface="sans"
             android:gravity="center_horizontal"/>
 
         <TextView
@@ -97,8 +117,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textSize="40sp"
-            android:typeface="sans"
+            android:textSize="30sp"
             android:textColor="@color/accent_material_light"
             android:gravity="center_horizontal"/>
 

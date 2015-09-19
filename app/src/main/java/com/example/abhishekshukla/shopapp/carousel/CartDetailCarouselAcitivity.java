@@ -2,6 +2,7 @@ package com.example.abhishekshukla.shopapp.carousel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.abhishekshukla.shopapp.CartActivity;
 import com.example.abhishekshukla.shopapp.R;
 import com.example.abhishekshukla.shopapp.UserCart;
 import com.example.abhishekshukla.shopapp.dto.CartItem;
@@ -52,8 +54,18 @@ public class CartDetailCarouselAcitivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_details_carousel);
+
         TextView cartTextView = (TextView) findViewById(R.id.itemDetailCartTextView);
         cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+
+        ImageView listView = (ImageView) findViewById(R.id.item_image_list);
+
+        listView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CartActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
         CoverFlow coverFlow;
         coverFlow = new CoverFlow(this);
@@ -89,18 +101,6 @@ public class CartDetailCarouselAcitivity extends Activity {
         private List<CartItem> cartItems;
 
         private FileInputStream fis;
-
-//        private String[] mImageIds = {
-//                "http://bigbasket.com/media/uploads/p/m/100008139_4-brown-polson-corn-flour.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/100285920_1-eagle-yeast-active-dry.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/100349327_1-betty-crocker-mix-pancake.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/100005747_2-weikfield-powder-cocoa.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/40008378_1-weikfield-custard-powder-vanilla-flavour.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/265970_1-mtr-mix-gulab-jamun.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/100012255_1-pillsbury-cooker-cake-chocolate-eggless.jpg",
-//                "http://bigbasket.com/media/uploads/p/l/100005522_1-weikfield-powder-baking.jpg",
-//        };
 
         private ImageView[] mImages;
 
