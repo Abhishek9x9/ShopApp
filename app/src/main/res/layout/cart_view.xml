@@ -9,10 +9,10 @@
         android:orientation="horizontal"
         android:background="@drawable/search_header_background">
         <ImageView
-            android:layout_width="77dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/shop_local"
+            android:src="@drawable/shopping_icon2"
             android:paddingLeft="@dimen/padding_half"
             android:paddingTop="@dimen/padding_half"
             android:paddingBottom="@dimen/padding_half"/>
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_view_list_black_36dp"
-                android:paddingTop="@dimen/padding_half"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
                 android:paddingBottom="@dimen/padding_half"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/item_image_carousel"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_view_carousel_white_36dp"
-                android:paddingTop="@dimen/padding_half"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
                 android:paddingBottom="@dimen/padding_half"
                 android:paddingLeft="@dimen/padding"
                 android:layout_alignParentTop="true"
@@ -46,7 +46,7 @@
                 android:id="@+id/image_cart"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:src="@drawable/cart"
+                android:src="@drawable/ic_shopping_basket_white_36dp"
                 android:paddingTop="@dimen/padding_half"
                 android:paddingBottom="@dimen/padding_half"
                 android:layout_alignParentTop="true"
@@ -73,7 +73,7 @@
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/list_view"
         android:layout_weight="1"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         style="@style/ListViewStyle" />
     <Button

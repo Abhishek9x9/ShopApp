@@ -58,12 +58,21 @@ public class CartDetailCarouselAcitivity extends Activity {
         TextView cartTextView = (TextView) findViewById(R.id.itemDetailCartTextView);
         cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
 
-        ImageView listView = (ImageView) findViewById(R.id.item_image_list);
+        ImageView listView = (ImageView) findViewById(R.id.item_image_list_from_caraousel);
 
         listView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Toast.makeText(view.getContext(), "listView has been clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(), CartActivity.class);
                 view.getContext().startActivity(intent);
+            }
+        });
+
+        ImageView caraouselView = (ImageView) findViewById(R.id.item_image_carousel);
+
+        caraouselView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "caraouselView has been clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -92,7 +101,6 @@ public class CartDetailCarouselAcitivity extends Activity {
                 Toast.makeText(v.getContext(), "Checkout has been clicked", Toast.LENGTH_SHORT).show();
             }
         });
-        button.setFocusable(true);
     }
 
     public class ImageAdapter extends BaseAdapter {
@@ -131,10 +139,6 @@ public class CartDetailCarouselAcitivity extends Activity {
                 Matrix matrix = new Matrix();
                 matrix.preScale(1, -1);
 
-                //Create a Bitmap with the flip matrix applied to it.
-                //We only want the bottom half of the image
-                Bitmap reflectionImage = Bitmap.createBitmap(originalImage, 0, height / 4, width, height / 4, matrix, false);
-
                 //Create a new bitmap with same width but taller to fit reflection
                 Bitmap bitmapWithReflection = Bitmap.createBitmap(width
                         , (height), Bitmap.Config.ARGB_8888);
@@ -147,8 +151,6 @@ public class CartDetailCarouselAcitivity extends Activity {
                 //Draw in the gap
                 Paint deafaultPaint = new Paint();
                 canvas.drawRect(0, height, width, height + reflectionGap, deafaultPaint);
-                //Draw in the reflection
-                //canvas.drawBitmap(reflectionImage, 0, height + reflectionGap, null);
 
                 //Create a shader that is a linear gradient that covers the reflection
                 Paint paint = new Paint();
@@ -163,19 +165,13 @@ public class CartDetailCarouselAcitivity extends Activity {
                 canvas.drawRect(0, height, width,
                         bitmapWithReflection.getHeight() + reflectionGap, paint);
 
-
                 ImageView imageView = new ImageView(mContext);
                 imageView.setImageBitmap(bitmapWithReflection);
                 CoverFlow.LayoutParams layoutParams = new CoverFlow.LayoutParams(500, 600);
                 imageView.setLayoutParams(layoutParams);
                 imageView.setScaleType(ImageView.ScaleType.MATRIX);
                 mImages[index] = imageView;
-
-                TextView textView = new TextView(mContext);
-                textView.setText("Colgate: " + index);
-                textView.setLayoutParams(new CoverFlow.LayoutParams(300, 300));
-
-               index++;
+                index++;
             }
             return true;
         }

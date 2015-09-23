@@ -6,15 +6,16 @@
     android:layout_height="fill_parent"
     >
     <LinearLayout
+        android:id="@+id/header_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/search_header_background">
         <ImageView
-            android:layout_width="77dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/shop_local"
+            android:src="@drawable/shopping_icon2"
             android:paddingLeft="@dimen/padding_half"
             android:paddingTop="@dimen/padding_half"
             android:paddingBottom="@dimen/padding_half"/>
@@ -24,11 +25,11 @@
             android:orientation="horizontal"
             android:layout_gravity="right">
             <ImageView
-                android:id="@+id/item_image_list"
+                android:id="@+id/item_image_list_from_caraousel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_view_list_white_36dp"
-                android:paddingTop="@dimen/padding_half"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
                 android:paddingBottom="@dimen/padding_half"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/item_image_carousel"
@@ -38,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_view_carousel_black_36dp"
-                android:paddingTop="@dimen/padding_half"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
                 android:paddingBottom="@dimen/padding_half"
                 android:paddingLeft="@dimen/padding"
                 android:layout_alignParentTop="true"
@@ -48,9 +49,9 @@
                 android:id="@+id/item_image_cart"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:src="@drawable/cart"
+                android:src="@drawable/ic_shopping_basket_white_36dp"
                 android:paddingTop="@dimen/padding_half"
-                android:paddingBottom="@dimen/padding_half"
+                android:paddingBottom="@dimen/padding_small"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/itemDetailCartTextView"
                 android:layout_toStartOf="@+id/itemDetailCartTextView" />
@@ -84,6 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_double"
             android:layout_weight="1"
+            android:layout_toEndOf="@+id/header_bar"
+            android:layout_toRightOf="@+id/header_bar"
             />
     <!--</LinearLayout>-->
     <LinearLayout

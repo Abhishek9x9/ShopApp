@@ -7,8 +7,8 @@
     <color name="search_suggestion_store_name">#BBBBBB</color>
     <color name="search_horizontal_divider_start">#10C2C2C2</color>
     <color name="search_horizontal_divider_end">#BF3C3C3C</color>
-    <color name="widget_logo_background_gradient_start">#ffa500</color>
-    <color name="widget_logo_background_gradient_end">#ffc04c</color>
+    <color name="widget_logo_background_gradient_start">#CC2900</color>
+    <color name="widget_logo_background_gradient_end">#FF3300</color>
     <color name="NiceButtonStartColor">#4AA02C</color>
     <color name="NiceButtonEndColor">#348017</color>
     <color name="NiceButtonDisabledStartColor">#565051</color>

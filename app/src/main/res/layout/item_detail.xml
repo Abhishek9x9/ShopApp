@@ -10,10 +10,10 @@
         android:orientation="horizontal"
         android:background="@drawable/search_header_background">
         <ImageView
-            android:layout_width="77dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/shop_local"
+            android:src="@drawable/shopping_icon2"
             android:paddingLeft="@dimen/padding_half"
             android:paddingTop="@dimen/padding_half"
             android:paddingBottom="@dimen/padding_half"/>
@@ -25,7 +25,7 @@
                 android:id="@+id/item_image_cart"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:src="@drawable/cart"
+                android:src="@drawable/ic_shopping_basket_white_36dp"
                 android:paddingTop="@dimen/padding_half"
                 android:paddingBottom="@dimen/padding_half"
                 android:layout_alignParentTop="true"
