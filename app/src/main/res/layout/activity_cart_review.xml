@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.abhishekshukla.shopapp.review.CartReviewActivity">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/search_header_background">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/shopping_icon2"
+            android:paddingLeft="@dimen/padding_half"
+            android:paddingTop="@dimen/padding_half"
+            android:paddingBottom="@dimen/padding_half"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+          <!--  <ImageView
+                android:id="@+id/item_image_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_view_list_black_36dp"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
+                android:paddingBottom="@dimen/padding_half"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/image_cart"
+                />-->
+          <!--  <ImageView
+                android:id="@+id/item_image_carousel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_view_carousel_white_36dp"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
+                android:paddingBottom="@dimen/padding_half"
+                android:paddingLeft="@dimen/padding"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/image_cart"
+                />-->
+            <ImageView
+                android:id="@+id/image_cart"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_shopping_basket_white_36dp"
+                android:paddingTop="@dimen/padding_half"
+                android:paddingBottom="@dimen/padding_half"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/cartTextView"
+                android:layout_toStartOf="@+id/cartTextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="(2)"
+                android:textColor="@android:color/white"
+                android:paddingRight="@dimen/padding_small"
+                android:paddingTop="@dimen/padding"
+                android:paddingBottom="@dimen/padding_double"
+                android:id="@+id/cartTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cart_items"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        style="@style/ListViewStyle" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/place_order_button"
+        android:layout_margin="5dp"
+        android:background="@drawable/nice_button"
+        android:text="@string/cart_checkout_confirm"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:shadowRadius="1"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowColor="@android:color/black"
+        android:padding="@dimen/padding"/>
+</LinearLayout>

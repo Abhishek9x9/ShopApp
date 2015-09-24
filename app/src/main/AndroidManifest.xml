@@ -62,6 +62,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.abhishekshukla.shopapp.SearchActivity" />
         </activity>
+        <activity
+            android:name=".review.CartReviewActivity"
+            android:label="@string/title_activity_cart_review"
+            android:parentActivityName=".CartActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.abhishekshukla.shopapp.CartActivity" />
+        </activity>
     </application>
 
 </manifest>

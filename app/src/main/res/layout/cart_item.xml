@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:padding="10sp"
     android:layout_margin="@dimen/padding_double"
-    android:background="@drawable/item_shadow">
+    android:background="@drawable/box_shadow">
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="0dp"

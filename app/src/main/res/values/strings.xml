@@ -13,4 +13,6 @@
     <string name="title_activity_new_address">NewAddress</string>
     <string name="title_activity_cover_flow_example2">CoverFlowExample2</string>
     <string name="cart_checkout">Checkout</string>
+    <string name="cart_checkout_confirm">Confirm</string>
+    <string name="title_activity_cart_review">CartReviewActivity</string>
 </resources>

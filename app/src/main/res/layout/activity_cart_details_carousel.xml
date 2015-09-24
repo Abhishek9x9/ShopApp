@@ -65,6 +65,7 @@
                 android:paddingRight="@dimen/padding_small"
                 android:paddingTop="@dimen/padding"
                 android:paddingBottom="@dimen/padding_double"
+                android:typeface="sans"
                 android:id="@+id/itemDetailCartTextView"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -105,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="18sp"
+            android:typeface="sans"
             android:gravity="center_horizontal"/>
 
         <TextView
@@ -113,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="14sp"
+            android:typeface="sans"
             android:gravity="center_horizontal"/>
 
         <TextView
@@ -121,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="30sp"
+            android:typeface="sans"
             android:textColor="@color/accent_material_light"
             android:gravity="center_horizontal"/>
 
