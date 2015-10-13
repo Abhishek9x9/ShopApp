@@ -174,12 +174,15 @@
             <com.github.channguyen.rsv.RangeSliderView
                 android:id="@+id/rsv_small"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="10dp"
                 rsv:filledColor="#dd514c"
-                rsv:rangeCount="10" />
+                rsv:rangeCount="10"
+                rsv:slotRadiusPercent="0.10"
+                rsv:barHeightPercent="0.08"
+                rsv:sliderRadiusPercent="0.27"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
