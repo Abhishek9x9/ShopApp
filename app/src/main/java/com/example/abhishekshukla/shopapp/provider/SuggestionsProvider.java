@@ -55,7 +55,8 @@ public class SuggestionsProvider extends ContentProvider {
             "brand",
             "image_url",
             "price",
-            "about"
+            "about",
+            "saving"
     };
 
     static {
@@ -129,7 +130,7 @@ public class SuggestionsProvider extends ContentProvider {
                     product.setId(i);
                     product.setAbout("This is about : " + i);
                     product.setBrand("Brand: " + i);
-                    product.setPrice("₹" + 80.00 + i);
+                    product.setPrice("₹ " + 80.00 + i);
                     product.setTitle("Colgate Strong Teeth Toothpaste 200 g: " + i);
                     product.setSaving("You save ₹ " + 12 +  i);
                     product.setImageUrl(mImageIds[i]);
@@ -162,7 +163,8 @@ public class SuggestionsProvider extends ContentProvider {
                 product.getBrand(),
                 product.getImageUrl(),
                 product.getPrice(),
-                product.getAbout()
+                product.getAbout(),
+                product.getSaving()
         };
     }
 

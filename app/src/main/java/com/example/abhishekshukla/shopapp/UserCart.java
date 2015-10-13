@@ -25,7 +25,7 @@ public class UserCart {
         return userCart;
     }
 
-    public void addItem(Product product) {
+    public void addItem(Product product, int count) {
         if(null != itemMap.get(product.getId()))
         {
             itemMap.get(product.getId()).setItemCount(itemMap.get(product.getId()).getItemCount() + 1);
@@ -44,6 +44,7 @@ public class UserCart {
             cartItem.setRelatedItems(product.getRelatedItems());
             cartItem.setSizePriceList(product.getSizePriceList());
             cartItem.setSaving(product.getSaving());
+            cartItem.setItemCount(count);
             itemMap.put(cartItem.getId(), cartItem);
         }
     }

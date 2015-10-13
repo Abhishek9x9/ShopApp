@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsv="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
@@ -66,8 +67,8 @@
 
             <ImageView
                 android:id="@+id/itemImageView"
-                android:layout_width="230dp"
-                android:layout_height="230dp"
+                android:layout_width="210dp"
+                android:layout_height="210dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/padding_double"
                 android:background="@drawable/box_shadow" />
@@ -85,33 +86,33 @@
                 android:layout_height="fill_parent"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/layout_circular_top"
-                android:weightSum="6"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="6">
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
                     android:paddingLeft="@dimen/padding"
                     android:text="Colgate Title"
-                    android:textStyle="bold"
                     android:textSize="18dp"
-                    android:layout_weight="1"
+                    android:textStyle="bold"
                     android:typeface="sans" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="2"
                     android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical|center_horizontal"
                     android:layout_weight="5"
-                    android:textStyle="bold"
-                    android:textSize="16dp"
-                    android:textColor="@android:color/white"
                     android:background="@drawable/circular_count_bg"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="2"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
                     android:typeface="sans" />
             </LinearLayout>
 
@@ -121,74 +122,83 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="1dp"
                 android:background="@drawable/layout_circular_bottom"
-                android:rowCount="2"
                 android:columnCount="3"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:rowCount="2">
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_row="0"
-                    android:paddingLeft="@dimen/padding"
                     android:layout_column="0"
+                    android:layout_gravity="left"
                     android:layout_marginBottom="@dimen/padding_half"
+                    android:layout_row="0"
                     android:gravity="center_horizontal"
-                    android:textSize="16dp"
+                    android:paddingLeft="@dimen/padding"
                     android:text="99 Rs/-"
+                    android:textSize="16dp"
                     android:typeface="sans" />
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:paddingLeft="@dimen/padding"
-                    android:layout_marginBottom="@dimen/padding_half"
-                    android:gravity="center_horizontal"
-                    android:background="@drawable/striked_out"
-                    android:text="110 Rs/-"
-                    android:layout_row="1"
                     android:layout_column="0"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="@dimen/padding_half"
+                    android:layout_row="1"
+                    android:background="@drawable/striked_out"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="@dimen/padding"
+                    android:text="110 Rs/-"
                     android:typeface="sans" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_column="1"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/padding_half"
+                    android:layout_row="1"
                     android:gravity="center_horizontal"
+                    android:paddingLeft="@dimen/padding"
                     android:text="10% Off"
                     android:textColor="#ff6600"
                     android:textSize="18dp"
-                    android:paddingLeft="@dimen/padding"
-                    android:layout_row="1"
-                    android:layout_column="1"
                     android:typeface="sans" />
 
             </GridLayout>
 
+            <com.github.channguyen.rsv.RangeSliderView
+                android:id="@+id/rsv_small"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                rsv:filledColor="#dd514c"
+                rsv:rangeCount="10" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/padding"
                     android:layout_marginRight="@dimen/padding_extra_double"
+                    android:layout_marginTop="@dimen/padding_extra_small"
                     android:background="@drawable/nice_button"
                     android:shadowColor="@android:color/black"
                     android:shadowDx="1"
                     android:shadowDy="1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:shadowRadius="1"
                     android:text="Add"
                     android:textColor="@android:color/white"
