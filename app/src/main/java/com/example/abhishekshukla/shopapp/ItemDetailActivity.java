@@ -62,7 +62,7 @@ public class ItemDetailActivity  extends Activity {
 
         cartView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), CartDetailCarouselAcitivity.class);
+                Intent intent = new Intent(view.getContext(), CartActivity.class);
                 view.getContext().startActivity(intent);
             }
         });
@@ -117,6 +117,7 @@ public class ItemDetailActivity  extends Activity {
                 textView3.setText("" + itemCount);
             }
         };
+        textView5.setPaintFlags(textView5.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         smallSlider.setOnSlideListener(listener);
     }
 

@@ -36,6 +36,7 @@ package com.example.abhishekshukla.shopapp;
  import com.example.abhishekshukla.shopapp.adapter.GoogleCardsAdapter;
 
  import com.example.abhishekshukla.shopapp.carousel.CartDetailCarouselAcitivity;
+ import com.example.abhishekshukla.shopapp.dto.CartItem;
  import com.example.abhishekshukla.shopapp.review.CartReviewActivity;
  import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
  import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
@@ -111,8 +112,28 @@ public class CartActivity extends Activity implements OnDismissCallback {
         for (int position : reverseSortedPositions) {
             Log.d("Card position", "" + position);
             UserCart.getInstance().removeItem(mGoogleCardsAdapter.getItem(position).getId());
-            mGoogleCardsAdapter.remove(mGoogleCardsAdapter.getItem(position));
+            final CartItem cartItem = mGoogleCardsAdapter.getItem(position);
+            mGoogleCardsAdapter.remove(cartItem);
+            UserCart.getInstance().removeItem(cartItem.getId());
             cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+            //
+            View textView = findViewById(R.id.undo_view);
+            textView.setClickable(true);
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mGoogleCardsAdapter.add(cartItem);
+                    //put item back in cart
+                    cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+                }
+            });
+            textView.setVisibility(View.VISIBLE);
+            try {
+                Thread.sleep(5000);
+            }catch (Exception e){
+                //
+            }
+            textView.setVisibility(View.GONE);
         }
     }
 }
