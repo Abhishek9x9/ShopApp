@@ -1,9 +1,11 @@
 package com.example.abhishekshukla.shopapp;
 
+import java.util.EnumSet;
 import java.util.List;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
+import android.app.Application;
 import android.content.pm.ApplicationInfo;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 
@@ -18,14 +20,9 @@ public class ShopApplication extends android.app.Application {
         sInstance = this;
         super.onCreate();
         DEBUG = (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
-//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-//                        .setDefaultFontPath("fonts/Tahoma.ttf")
-//                        .setFontAttrId(R.attr.fontPath)
-//                        .build()
-//        );
-        if ( getApplicationInfo().processName.equals(getCurrentProcessName()) ) {
+        
+        if ( getApplicationInfo().processName.equals(getCurrentProcessName()) )
             initFvApplication();
-        }
     }
     
     private void initFvApplication() {

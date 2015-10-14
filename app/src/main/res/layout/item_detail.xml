@@ -89,7 +89,7 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -97,9 +97,11 @@
                     android:layout_weight="1"
                     android:paddingLeft="@dimen/padding"
                     android:text="Colgate Title"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:typeface="sans" />
 
-                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -110,7 +112,8 @@
                     android:text="2"
                     android:textColor="@android:color/white"
                     android:textSize="16dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:typeface="sans" />
             </LinearLayout>
 
             <GridLayout
@@ -123,7 +126,7 @@
                 android:orientation="horizontal"
                 android:rowCount="2">
 
-                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -134,9 +137,10 @@
                     android:gravity="center_horizontal"
                     android:paddingLeft="@dimen/padding"
                     android:text="99 Rs/-"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:typeface="sans" />
 
-                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,9 +151,10 @@
                     android:background="@drawable/striked_out"
                     android:gravity="center_horizontal"
                     android:paddingLeft="@dimen/padding"
-                    android:text="110 Rs/-" />
+                    android:text="110 Rs/-"
+                    android:typeface="sans" />
 
-                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

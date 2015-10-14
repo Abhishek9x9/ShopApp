@@ -62,7 +62,7 @@ public class GoogleCardsAdapter extends ArrayAdapter<CartItem> {
         TextView price = (TextView) convertView.findViewById(R.id.item_price);
         price.setText(item.getPrice());
 
-        final TextView upArrow = (TextView)  convertView.findViewById(R.id.add_button);
+        final ImageButton upArrow = (ImageButton)  convertView.findViewById(R.id.add_button);
         upArrow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int count = item.getItemCount();
@@ -73,7 +73,7 @@ public class GoogleCardsAdapter extends ArrayAdapter<CartItem> {
             }
         });
 
-        TextView downArrow = (TextView)  convertView.findViewById(R.id.subtract_button);
+        ImageButton downArrow = (ImageButton)  convertView.findViewById(R.id.subtract_button);
         downArrow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int count = item.getItemCount();

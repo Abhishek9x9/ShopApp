@@ -1,99 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/padding_half"
-    android:background="@drawable/button_shadow_small"
-    android:orientation="horizontal"
-    android:padding="@dimen/padding_half">
-
+    android:padding="10sp"
+    android:layout_margin="@dimen/padding_double"
+    android:background="@drawable/box_shadow">
     <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:orientation="vertical"
         android:id="@+id/cart_item_left"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:orientation="vertical">
+        android:layout_weight="1" >
 
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_double"
             android:id="@+id/item_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
             android:background="@drawable/card_bg"
-            android:padding="@dimen/padding" />
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cart_item_right"
-        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:id="@+id/cart_item_right"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_double"
+        android:layout_weight="1" >
 
-        <com.example.abhishekshukla.shopapp.view.CustomTextView
-            android:id="@+id/item_title"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:gravity="left"
-            android:inputType="textMultiLine"
-            android:text="Britannia Good day Rich Cachew Cookie" />
+            android:text="New Text"
+            android:id="@+id/item_title"
+            android:layout_gravity="center_horizontal"
+            android:inputType="textMultiLine"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:id="@+id/item_price"
+            android:layout_gravity="center_horizontal"
+            android:inputType="textMultiLine"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="46sp"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/padding_double"
             android:orientation="horizontal">
 
-            <com.example.abhishekshukla.shopapp.view.CustomTextView
-                android:id="@+id/item_price"
+            <LinearLayout
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="3"
-                android:gravity="left"
-                android:text="Rs 31/-" />
+                android:orientation="horizontal"
+                android:layout_weight="2">
 
-            <com.example.abhishekshukla.shopapp.view.CustomTextView
-                android:id="@+id/subtract_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:background="@drawable/button_shadow_small"
-                android:gravity="center_horizontal"
-                android:text="&#8210;"
-                android:textColor="#dd514c"
-                android:textSize="27dp" />
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:inputType="number"
+                    android:layout_marginLeft="10dp"
+                    android:text="Count "
+                    android:layout_gravity="center_vertical" />
 
-            <com.example.abhishekshukla.shopapp.view.CustomTextView
-                android:id="@+id/item_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/padding_half"
-                android:layout_marginRight="@dimen/padding_half"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="10"
-                android:textSize="15dp" />
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:inputType="number"
+                    android:id="@+id/item_count"
+                    android:layout_gravity="center_vertical" />
 
-            <com.example.abhishekshukla.shopapp.view.CustomTextView
-                android:id="@+id/add_button"
-                android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:background="@drawable/button_shadow_small"
-                android:gravity="center_horizontal"
-                android:text="+"
-                android:textColor="#dd514c"
-                android:textSize="27dp" />
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="@dimen/padding_small"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:id="@+id/subtract_button"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:background="@color/transparent_background"
+                    android:src="@drawable/ic_remove_circle_outline_black_48dp" />
+
+                <ImageButton
+                    android:id="@+id/add_button"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:background="@color/transparent_background"
+                    android:src="@drawable/ic_add_circle_outline_black_48dp" />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

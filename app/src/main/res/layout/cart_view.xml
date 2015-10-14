@@ -70,15 +70,6 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/undo_view"
-        android:layout_weight="10"
-        android:visibility="gone"
-        android:text="Undo"
-        android:textColor="@color/widget_logo_background_gradient_start"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
-
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/list_view"
         android:layout_weight="1"
