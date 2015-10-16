@@ -142,7 +142,5 @@ public class ItemDetailActivity  extends Activity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setupWindowAnimations() {
-        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.explode);
-        getWindow().setEnterTransition(transition);
     }
 }

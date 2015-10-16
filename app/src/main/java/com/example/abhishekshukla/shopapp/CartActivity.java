@@ -35,6 +35,7 @@ package com.example.abhishekshukla.shopapp;
 
  import com.example.abhishekshukla.shopapp.adapter.GoogleCardsAdapter;
 
+ import com.example.abhishekshukla.shopapp.auth.RegistrationActivity;
  import com.example.abhishekshukla.shopapp.carousel.CartDetailCarouselAcitivity;
  import com.example.abhishekshukla.shopapp.dto.CartItem;
  import com.example.abhishekshukla.shopapp.review.CartReviewActivity;
@@ -94,7 +95,7 @@ public class CartActivity extends Activity implements OnDismissCallback {
 //                Intent intent = new Intent(v.getContext(), AddressActivity.class);
 //                v.getContext().startActivity(intent);
                 Toast.makeText(v.getContext(), "Checkout is clicked", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(v.getContext(), CartReviewActivity.class);
+                Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
                 v.getContext().startActivity(intent);
             }
         });
