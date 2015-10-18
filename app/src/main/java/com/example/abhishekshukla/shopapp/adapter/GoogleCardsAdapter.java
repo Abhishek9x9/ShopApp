@@ -19,11 +19,13 @@ import com.example.abhishekshukla.shopapp.dto.CartItem;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 import com.example.abhishekshukla.shopapp.util.ImageSub;
 import com.example.abhishekshukla.shopapp.R;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SwipeUndoAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.UndoCallback;
 
 public class GoogleCardsAdapter extends ArrayAdapter<CartItem> {
 	
 	private LayoutInflater mInflater;
-	
+
 	public GoogleCardsAdapter(Context context, List<CartItem> items) {
 		super(context, 0, items);
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -35,7 +37,7 @@ public class GoogleCardsAdapter extends ArrayAdapter<CartItem> {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(int position, View convertView, final ViewGroup parent) {
 		final ViewHolder holder;
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.cart_item , parent, false);

@@ -97,7 +97,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="@dimen/padding"
                     android:text="Colgate Title"
-                    android:textSize="18dp" />
+                    android:textSize="16dp" />
 
                 <com.example.abhishekshukla.shopapp.view.CustomTextView
                     android:id="@+id/textView3"
@@ -134,7 +134,7 @@
                     android:gravity="center_horizontal"
                     android:paddingLeft="@dimen/padding"
                     android:text="99 Rs/-"
-                    android:textSize="16dp" />
+                    android:textSize="14dp" />
 
                 <com.example.abhishekshukla.shopapp.view.CustomTextView
                     android:id="@+id/textView5"
@@ -161,7 +161,7 @@
                     android:paddingLeft="@dimen/padding"
                     android:text="10% Off"
                     android:textColor="#ff6600"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:typeface="sans" />
 
             </GridLayout>

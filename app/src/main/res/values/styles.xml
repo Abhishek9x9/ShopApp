@@ -22,4 +22,36 @@
         <item name="android:choiceMode">singleChoice</item>
         <item name="android:divider">@android:color/transparent</item>
         <item name="android:dividerHeight">0dp</item></style>
+
+    <style name="Root_KitKat">
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:background">@drawable/root_background_kitkat</item>
+    </style>
+
+    <style name="Message_KitKat">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Button_KitKat">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:drawableLeft">@drawable/ic_undo</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#acacac</item>
+        <item name="android:background">@drawable/button_background_kitkat</item>
+    </style>
+
 </resources>
