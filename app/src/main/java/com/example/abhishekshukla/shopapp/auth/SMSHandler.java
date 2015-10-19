@@ -28,10 +28,8 @@ public class SMSHandler {
                 for (int idx = 0; idx < cursor.getColumnCount(); idx++) {
                     msgData += " " + cursor.getColumnName(idx) + ":" + cursor.getString(idx);
                     if(idx == 3){
-                        String[] otpSplit = cursor.getString(idx).split(":");
-                        if(otpSplit[0].equals("OTP is")) {
-                            return otpSplit[1];
-                        }
+                        String[] otpSplit = cursor.getString(idx).split(" ");
+                        return otpSplit[0];
                     }
                 }
                 Logger.getAnonymousLogger().info(msgData);

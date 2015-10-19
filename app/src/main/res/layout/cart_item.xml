@@ -173,8 +173,7 @@
             style="@style/Button_KitKat"
             android:layout_width="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_height="fill_parent"
-            android:layout_alignParentRight="true" />
+            android:layout_height="fill_parent" />
 
         <!--<com.example.abhishekshukla.shopapp.view.CustomTextView
             style="@style/Message_KitKat"
