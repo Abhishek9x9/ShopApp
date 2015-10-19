@@ -1,12 +1,16 @@
 package com.example.abhishekshukla.shopapp;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -38,6 +42,7 @@ public class SearchActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupWindowAnimations();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.search_layout);
         mSearchButton = (ImageButton) findViewById(R.id.search_button);
@@ -137,4 +142,10 @@ public class SearchActivity extends Activity {
     public void setHeaderVisibility(int visibility) {
         mSuggestionsLabel.setVisibility(visibility);
     }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setupWindowAnimations() {
+
+    }
+
 }

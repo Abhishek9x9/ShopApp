@@ -2,92 +2,186 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/search_header_background">
+        android:background="@drawable/search_header_background"
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/shopping_icon2"
+            android:paddingBottom="@dimen/padding_half"
             android:paddingLeft="@dimen/padding_half"
             android:paddingTop="@dimen/padding_half"
-            android:paddingBottom="@dimen/padding_half"/>
+            android:src="@drawable/shopping_icon2" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="right">
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/item_image_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_view_list_black_36dp"
-                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
-                android:paddingBottom="@dimen/padding_half"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/item_image_carousel"
-                />
+                android:paddingBottom="@dimen/padding_half"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
+                android:src="@drawable/ic_view_list_black_36dp" />
+
             <ImageView
                 android:id="@+id/item_image_carousel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_view_carousel_white_36dp"
-                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
-                android:paddingBottom="@dimen/padding_half"
-                android:paddingLeft="@dimen/padding"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/image_cart"
-                />
+                android:paddingBottom="@dimen/padding_half"
+                android:paddingLeft="@dimen/padding"
+                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
+                android:src="@drawable/ic_view_carousel_white_36dp" />
+
             <ImageView
                 android:id="@+id/image_cart"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_shopping_basket_white_36dp"
-                android:paddingTop="@dimen/padding_half"
-                android:paddingBottom="@dimen/padding_half"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/cartTextView"
-                android:layout_toStartOf="@+id/cartTextView" />
+                android:layout_toStartOf="@+id/cartTextView"
+                android:paddingBottom="@dimen/padding_half"
+                android:paddingTop="@dimen/padding_half"
+                android:src="@drawable/ic_shopping_basket_white_36dp" />
 
             <TextView
+                android:id="@+id/cartTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:text="(2)"
-                android:textColor="@android:color/white"
+                android:paddingBottom="@dimen/padding_double"
                 android:paddingRight="@dimen/padding_small"
                 android:paddingTop="@dimen/padding"
-                android:paddingBottom="@dimen/padding_double"
-                android:id="@+id/cartTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:text="(2)"
+                android:textColor="@android:color/white" />
 
         </RelativeLayout>
     </LinearLayout>
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/list_view"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
+        style="@style/ListViewStyle"
         android:layout_width="match_parent"
-        style="@style/ListViewStyle" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffeeeeee"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/padding"
+            android:background="@android:color/darker_gray" />
+
+        <GridLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <com.example.abhishekshukla.shopapp.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/padding_half"
+                android:layout_marginRight="@dimen/padding_half"
+                android:layout_row="0"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Approximate"
+                android:textSize="11dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal">
+
+                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/padding_half"
+                    android:layout_marginRight="@dimen/padding_half"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Total Bill: Rs "
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                    android:id="@+id/total_bill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/padding_half"
+                    android:layout_marginRight="@dimen/padding_half"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="2345/-"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <com.example.abhishekshukla.shopapp.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/padding_double"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/padding_small"
+                android:text="7"
+                android:background="@drawable/full_moon"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_column="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/padding_double"
+                android:layout_marginBottom="@dimen/padding"
+                android:layout_weight="1"
+                android:src="@drawable/shopping_cart_loaded" />
+        </GridLayout>
+    </LinearLayout>
+
     <Button
+        android:id="@+id/place_order_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/place_order_button"
         android:layout_margin="5dp"
         android:background="@drawable/nice_button"
-        android:text="@string/cart_checkout"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:shadowRadius="1"
+        android:padding="@dimen/padding"
+        android:shadowColor="@android:color/black"
         android:shadowDx="1"
         android:shadowDy="1"
-        android:shadowColor="@android:color/black"
-        android:padding="@dimen/padding"/>
+        android:shadowRadius="1"
+        android:text="@string/cart_checkout"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 </LinearLayout>

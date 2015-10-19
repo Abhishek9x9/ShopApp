@@ -42,4 +42,6 @@ dependencies {
                 //compile ("com.android.support:support-annotations:22.2.0")
                // compile ("com.android.support:recyclerview-v7:22.2.0")
                // compile ("com.android.support:design:22.2.0")
+    compile 'com.github.channguyen:rsv:1.0.1'
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
 }

@@ -137,6 +137,7 @@ public class ResultsManager {
             product.setImageUrl(mCursor.getString(3));
             product.setPrice(mCursor.getString(4));
             product.setAbout(mCursor.getString(5));
+            product.setSaving(mCursor.getString(6));
 
             Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
             intent.putExtra(PRODUCT_CLICKED, product);

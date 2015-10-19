@@ -19,15 +19,20 @@ package com.example.abhishekshukla.shopapp;
  import android.content.Intent;
  import android.content.res.Resources;
  import android.os.Bundle;
+ import android.os.Parcelable;
  import android.support.annotation.NonNull;
  import android.support.v7.app.ActionBarActivity;
  import android.util.Log;
  import android.util.TypedValue;
+ import android.view.LayoutInflater;
  import android.view.View;
  import android.view.ViewGroup;
+ import android.view.Window;
+ import android.widget.BaseAdapter;
  import android.widget.Button;
  import android.widget.ImageView;
  import android.widget.ListView;
+ import android.widget.RelativeLayout;
  import android.widget.TextView;
  import android.widget.Toast;
  import android.app.Activity;
@@ -35,17 +40,20 @@ package com.example.abhishekshukla.shopapp;
 
  import com.example.abhishekshukla.shopapp.adapter.GoogleCardsAdapter;
 
+ import com.example.abhishekshukla.shopapp.auth.RegistrationActivity;
  import com.example.abhishekshukla.shopapp.carousel.CartDetailCarouselAcitivity;
- import com.example.abhishekshukla.shopapp.review.CartReviewActivity;
+ import com.example.abhishekshukla.shopapp.dto.CartItem;
  import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
- import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
- import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeDismissAdapter;
+ import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SwipeUndoAdapter;
+ import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.UndoCallback;
+ import com.nhaarman.listviewanimations.util.ListViewWrapper;
 
-public class CartActivity extends Activity implements OnDismissCallback {
+public class CartActivity extends Activity implements UndoCallback {
 
     private static final int INITIAL_DELAY_MILLIS = 300;
 
     private GoogleCardsAdapter mGoogleCardsAdapter;
+    private SwipeUndoAdapter swipeUndoAdapter;
 
     private TextView cartTextView;
 
@@ -66,8 +74,13 @@ public class CartActivity extends Activity implements OnDismissCallback {
         });
 
         mGoogleCardsAdapter = new GoogleCardsAdapter(this, UserCart.getInstance().getAllProducts());
-        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
-                new SwipeDismissAdapter(mGoogleCardsAdapter, this));
+        swipeUndoAdapter = new SwipeUndoAdapter(mGoogleCardsAdapter, this) {
+            @Override
+            public void setListViewWrapper(@NonNull ListViewWrapper listViewWrapper) {
+                super.setListViewWrapper(listViewWrapper);
+            }
+        };
+        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(swipeUndoAdapter);
         swingBottomInAnimationAdapter.setAbsListView(listView);
 
         assert swingBottomInAnimationAdapter.getViewAnimator() != null;
@@ -90,13 +103,13 @@ public class CartActivity extends Activity implements OnDismissCallback {
         Button placeOrderButton = (Button)findViewById(R.id.place_order_button);
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                Intent intent = new Intent(v.getContext(), AddressActivity.class);
-//                v.getContext().startActivity(intent);
                 Toast.makeText(v.getContext(), "Checkout is clicked", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(v.getContext(), CartReviewActivity.class);
+                Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
                 v.getContext().startActivity(intent);
             }
         });
+
+
     }
 
     @Override
@@ -108,11 +121,52 @@ public class CartActivity extends Activity implements OnDismissCallback {
     @Override
     public void onDismiss(@NonNull final ViewGroup listView,
                           @NonNull final int[] reverseSortedPositions) {
-        for (int position : reverseSortedPositions) {
+        for (final int position : reverseSortedPositions) {
             Log.d("Card position", "" + position);
+            final CartItem cartItem = mGoogleCardsAdapter.getItem(position);
             UserCart.getInstance().removeItem(mGoogleCardsAdapter.getItem(position).getId());
-            mGoogleCardsAdapter.remove(mGoogleCardsAdapter.getItem(position));
+            mGoogleCardsAdapter.remove(cartItem);
+            UserCart.getInstance().removeItem(cartItem.getId());
             cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
         }
+    }
+
+    @NonNull
+    @Override
+    public View getPrimaryView(@NonNull View view) {
+        return view.findViewById(R.id.main_item_view);
+    }
+
+    @NonNull
+    @Override
+    public View getUndoView(@NonNull View view) {
+        return view.findViewById(R.id.undoBar);
+    }
+
+    @Override
+    public void onUndoShown(@NonNull final View view, final int position) {
+        view.findViewById(R.id.undo_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.findViewById(R.id.undoBar).setVisibility(View.GONE);
+                swipeUndoAdapter.undo(view);
+            }
+        });
+
+        view.findViewById(R.id.item_delete_confirm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                swipeUndoAdapter.dismiss(position);
+            }
+        });
+    }
+
+    @Override
+    public void onUndo(@NonNull View view, int position) {
+    }
+
+    @Override
+    public void onDismiss(@NonNull View view, int position) {
+
     }
 }
