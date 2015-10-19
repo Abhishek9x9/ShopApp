@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="actionbar_opacity">#DD000000</color>
     <color name="search_bar_start_bg">#ff000000</color>
     <color name="search_bar_end_bg">#ff161616</color>
     <color name="search_suggestion_query">#EEEEEE</color>
