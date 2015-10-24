@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.abhishekshukla.shopapp.auth.RegistrationActivity">
+    tools:context="com.example.abhishekshukla.shopapp.activity.auth.RegistrationActivity">
 
     <com.example.abhishekshukla.shopapp.view.CustomEditTextView
         android:id="@+id/phone_no"

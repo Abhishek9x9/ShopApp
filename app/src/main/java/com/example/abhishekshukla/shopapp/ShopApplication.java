@@ -5,6 +5,8 @@ import java.util.List;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.pm.ApplicationInfo;
+import android.os.StrictMode;
+
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 
 
@@ -26,6 +28,9 @@ public class ShopApplication extends android.app.Application {
         if ( getApplicationInfo().processName.equals(getCurrentProcessName()) ) {
             initFvApplication();
         }
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
     }
     
     private void initFvApplication() {

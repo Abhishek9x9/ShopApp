@@ -80,7 +80,7 @@
         android:layout_marginTop="@dimen/padding_double"
         android:orientation="horizontal">-->
 
-        <com.example.abhishekshukla.shopapp.carousel.CoverFlow
+        <com.example.abhishekshukla.shopapp.activity.cart.carouselview.CoverFlow
             android:id="@+id/coverflow"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

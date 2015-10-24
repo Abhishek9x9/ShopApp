@@ -1,24 +1,11 @@
 package com.example.abhishekshukla.shopapp.dto;
 
+import lombok.Data;
+
 /**
  * Created by abhishekshukla on 18/4/15.
  */
+@Data
 public class CartItem extends Product{
-    private int itemCount;
-
-    public CartItem()
-    {
-        super();
-        itemCount = 1;
-    }
-
-    public int getItemCount()
-    {
-        return itemCount;
-    }
-
-    public void setItemCount(int itemCount)
-    {
-        this.itemCount = itemCount;
-    }
+    private int itemCount = 1;
 }

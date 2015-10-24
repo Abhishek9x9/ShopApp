@@ -4,14 +4,16 @@ import com.example.abhishekshukla.shopapp.dto.CartItem;
 import com.example.abhishekshukla.shopapp.dto.Product;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.Data;
+
 /**
  * Created by abhishekshukla on 29/3/15.
  */
+@Data
 public class UserCart {
 
     private Map<Long, CartItem> itemMap = new HashMap<Long, CartItem>();
@@ -35,14 +37,9 @@ public class UserCart {
             CartItem cartItem = new CartItem();
             cartItem.setId(product.getId());
             cartItem.setTitle(product.getTitle());
-            cartItem.setAbout(product.getAbout());
-            cartItem.setPrice(product.getPrice());
+            cartItem.setOriginalPrice(product.getOriginalPrice());
             cartItem.setBrand(product.getBrand());
-            cartItem.setItemCount(1);
             cartItem.setImageUrl(product.getImageUrl());
-            cartItem.setUrl(product.getUrl());
-            cartItem.setRelatedItems(product.getRelatedItems());
-            cartItem.setSizePriceList(product.getSizePriceList());
             cartItem.setSaving(product.getSaving());
             cartItem.setItemCount(count);
             itemMap.put(cartItem.getId(), cartItem);
