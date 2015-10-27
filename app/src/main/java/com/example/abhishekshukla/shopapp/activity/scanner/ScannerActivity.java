@@ -159,11 +159,10 @@ public class ScannerActivity extends ActionBarActivity implements MessageDialogF
             @Override
             public void run() {
                 Product product = ProductLookup.getProductByBarCode(rawResult.getText());
-
+                if (ringProgressDialog != null) {
+                    ringProgressDialog.dismiss();
+                }
                 if (product != null) {
-                    if (ringProgressDialog != null) {
-                        ringProgressDialog.dismiss();
-                    }
                     Intent intent = new Intent(getApplicationContext(), ItemDetailActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra(ItemDetailActivity.PRODUCT_CLICKED, product);

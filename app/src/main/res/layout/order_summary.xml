@@ -24,7 +24,7 @@
                 android:orientation="vertical">
 
                 <com.example.abhishekshukla.shopapp.view.CustomTextView
-                    android:id="@+id/item_title"
+                    android:id="@+id/order_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -32,10 +32,9 @@
                     android:inputType="textMultiLine"
                     android:typeface="sans"
                     android:textSize="15sp"
-                    android:text="Colgate Toothpaste 200 gms Colgate Toothpaste 200 gms"  />
+                    android:text="27 October 2015"  />
 
                 <LinearLayout
-                    android:id="@+id/cart_item_right"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -47,48 +46,49 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:typeface="sans"
-                        android:layout_toLeftOf="@+id/item_price"
+                        android:layout_toLeftOf="@+id/order_id"
                         android:inputType="number"
-                        android:text="3" />
+                        android:text="23 Items " />
 
                     <com.example.abhishekshukla.shopapp.view.CustomTextView
+                        android:id="@+id/order_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:typeface="sans"
-                        android:layout_toLeftOf="@+id/item_price"
+                        android:layout_toLeftOf="@+id/order_id"
                         android:inputType="number"
-                        android:text="X" />
+                        android:text="1735 Rs/- " />
 
                     <com.example.abhishekshukla.shopapp.view.CustomTextView
-                        android:id="@+id/item_price"
+                        android:id="@+id/order_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="center_vertical"
                         android:layout_margin="5dp"
                         android:inputType="textMultiLine"
-                        android:text="10 Rs/-" />
+                        android:text="(Order #3232323)" />
                 </LinearLayout>
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="top"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <com.example.abhishekshukla.shopapp.view.CustomTextView
-                    android:id="@+id/item_total_price"
+                <ImageView
+                    android:id="@+id/order_details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top"
+                    android:layout_gravity="center_vertical"
                     android:typeface="sans"
                     android:layout_margin="5dp"
                     android:inputType="number"
-                    android:text="30/- Rs" />
+                    android:src="@drawable/next_arrow"/>
 
             </RelativeLayout>
         </LinearLayout>

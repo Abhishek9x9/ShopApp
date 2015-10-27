@@ -17,23 +17,21 @@ import lombok.Data;
 public class UserCart {
 
     private Map<Long, CartItem> itemMap = new HashMap<Long, CartItem>();
+
     private UserCart() {
 
     }
-    final static UserCart  userCart = new UserCart();
 
-    public static UserCart getInstance()
-    {
+    final static UserCart userCart = new UserCart();
+
+    public static UserCart getInstance() {
         return userCart;
     }
 
     public void addItem(Product product, int count) {
-        if(null != itemMap.get(product.getId()))
-        {
+        if (null != itemMap.get(product.getId())) {
             itemMap.get(product.getId()).setItemCount(itemMap.get(product.getId()).getItemCount() + 1);
-        }
-        else
-        {
+        } else {
             CartItem cartItem = new CartItem();
             cartItem.setId(product.getId());
             cartItem.setTitle(product.getTitle());
@@ -46,13 +44,11 @@ public class UserCart {
         }
     }
 
-    public int getCartSize()
-    {
+    public int getCartSize() {
         return itemMap.size();
     }
 
-    public List<CartItem> getAllProducts()
-    {
+    public List<CartItem> getAllProducts() {
         return new ArrayList(itemMap.values());
     }
 
@@ -61,23 +57,25 @@ public class UserCart {
         removeItemFromDb(id);
     }
 
-    public void removeItemFromDb(Long id) {};
+    public void removeItemFromDb(Long id) {
+    }
+
+    ;
 
     public void saveOrUpdateItemFromDb(CartItem item) {
-        if(null != item)
-        {
+        if (null != item) {
             itemMap.put(item.getId(), item);
         }
-    };
+    }
+
+    ;
 
     public void loadFromDisk() {
         itemMap = new HashMap<Long, CartItem>();
     }
 
-    public void cleanCart()
-    {
-        for (Long id : itemMap.keySet())
-        {
+    public void cleanCart() {
+        for (Long id : itemMap.keySet()) {
             removeItemFromDb(id);
         }
         itemMap.clear();

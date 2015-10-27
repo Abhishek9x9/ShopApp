@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.abhishekshukla.shopapp.activity.review.CartReviewActivity">
+    tools:context="com.example.abhishekshukla.shopapp.activity.orders.OrderHistoryActivity">
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -22,37 +22,27 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="right">
-          <!--  <ImageView
-                android:id="@+id/item_image_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_view_list_black_36dp"
-                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
-                android:paddingBottom="@dimen/padding_half"
-                android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/image_cart"
-                />-->
-          <!--  <ImageView
-                android:id="@+id/item_image_carousel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_view_carousel_white_36dp"
-                android:paddingTop="@dimen/abc_button_padding_horizontal_material"
-                android:paddingBottom="@dimen/padding_half"
-                android:paddingLeft="@dimen/padding"
-                android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/image_cart"
-                />-->
-            <ImageView
-                android:id="@+id/order_history"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:src="@drawable/order_history"
-                android:paddingTop="@dimen/padding"
-                android:paddingBottom="@dimen/padding_half"
-                android:layout_toLeftOf="@+id/image_cart"
-                android:layout_toStartOf="@+id/image_cart" />
-
+            <!--  <ImageView
+                  android:id="@+id/item_image_list"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/ic_view_list_black_36dp"
+                  android:paddingTop="@dimen/abc_button_padding_horizontal_material"
+                  android:paddingBottom="@dimen/padding_half"
+                  android:layout_alignParentTop="true"
+                  android:layout_toLeftOf="@+id/image_cart"
+                  />-->
+            <!--  <ImageView
+                  android:id="@+id/item_image_carousel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/ic_view_carousel_white_36dp"
+                  android:paddingTop="@dimen/abc_button_padding_horizontal_material"
+                  android:paddingBottom="@dimen/padding_half"
+                  android:paddingLeft="@dimen/padding"
+                  android:layout_alignParentTop="true"
+                  android:layout_toLeftOf="@+id/image_cart"
+                  />-->
             <ImageView
                 android:id="@+id/image_cart"
                 android:layout_width="50dp"
@@ -63,7 +53,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/cartTextView"
                 android:layout_toStartOf="@+id/cartTextView" />
-
 
             <com.example.abhishekshukla.shopapp.view.CustomTextView
                 android:layout_width="wrap_content"
@@ -86,19 +75,5 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        style="@style/ListViewStyle" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/place_order_button"
-        android:layout_margin="5dp"
-        android:background="@drawable/nice_button"
-        android:text="@string/cart_checkout_confirm"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:shadowRadius="1"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowColor="@android:color/black"
-        android:padding="@dimen/padding"/>
+        android:listSelector="@drawable/list_selector2" />
 </LinearLayout>
