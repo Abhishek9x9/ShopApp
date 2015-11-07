@@ -7,6 +7,7 @@ import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.pm.ApplicationInfo;
 import android.os.StrictMode;
 
+import com.example.abhishekshukla.shopapp.cache.ProductCache;
 import com.example.abhishekshukla.shopapp.util.ImageLoader;
 
 
@@ -38,6 +39,7 @@ public class ShopApplication extends android.app.Application {
             @Override
             public void run() {
                 ImageLoader.getInstance().loadFromDiskCache();
+                ProductCache.getInstance().initCache(getInstance());
             }
         }.start();
     }
@@ -59,5 +61,11 @@ public class ShopApplication extends android.app.Application {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        ProductCache.getInstance().saveProductCache(getInstance());
     }
 }

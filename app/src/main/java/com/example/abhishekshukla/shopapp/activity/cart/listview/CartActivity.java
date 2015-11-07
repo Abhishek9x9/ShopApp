@@ -38,6 +38,7 @@ package com.example.abhishekshukla.shopapp.activity.cart.listview;
  import com.example.abhishekshukla.shopapp.activity.auth.RegistrationActivity;
  import com.example.abhishekshukla.shopapp.activity.cart.carouselview.CartDetailCarouselAcitivity;
  import com.example.abhishekshukla.shopapp.activity.review.CartReviewActivity;
+ import com.example.abhishekshukla.shopapp.auth.UserAuth;
  import com.example.abhishekshukla.shopapp.dto.CartItem;
  import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
  import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SwipeUndoAdapter;
@@ -100,7 +101,8 @@ public class CartActivity extends Activity implements UndoCallback {
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "Checkout is clicked", Toast.LENGTH_SHORT).show();
-                if(false) {
+                Boolean isUserLoggedIn = UserAuth.getInstance().isUserLoggedIn(v.getContext());
+                if(!isUserLoggedIn) {
                     Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
                     v.getContext().startActivity(intent);
                 }else{

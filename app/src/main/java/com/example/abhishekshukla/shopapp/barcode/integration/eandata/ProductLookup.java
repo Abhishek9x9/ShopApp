@@ -3,6 +3,7 @@ package com.example.abhishekshukla.shopapp.barcode.integration.eandata;
 import android.os.StrictMode;
 import android.util.Log;
 
+import com.example.abhishekshukla.shopapp.cache.ProductCache;
 import com.example.abhishekshukla.shopapp.dto.Product;
 
 import org.apache.commons.io.IOUtils;
@@ -16,6 +17,8 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -31,6 +34,11 @@ public class ProductLookup {
     private static final int retryCount = 2;
 
     public static Product getProductByBarCode(String barcode) {
+        Product cachedProduct =  ProductCache.getInstance().getProduct(barcode);
+        if(cachedProduct != null){
+            return  cachedProduct;
+        }
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         int retry = 0;
@@ -79,13 +87,9 @@ public class ProductLookup {
                 retry = retry + 1;
             }
         }
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                    //update in background thread.
-            }
-
-        }).start();
+        if (product != null) {
+            ProductCache.getInstance().updateCache(barcode, product);
+        }
         return product;
     }
 }

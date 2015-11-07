@@ -16,6 +16,8 @@ import android.widget.ProgressBar;
 
 import com.example.abhishekshukla.shopapp.R;
 import com.example.abhishekshukla.shopapp.activity.review.CartReviewActivity;
+import com.example.abhishekshukla.shopapp.auth.UserAuth;
+import com.example.abhishekshukla.shopapp.auth.UserInfo;
 
 import java.util.logging.Logger;
 
@@ -97,6 +99,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                                 }
                                                 ringProgressDialog.dismiss();
+                                                //setting userinfo
+                                                UserInfo userInfo = new UserInfo();
+                                                userInfo.setPhoneNo(phoneNo);
+                                                UserAuth.getInstance().setUserInfo(userInfo);
+                                                UserAuth.getInstance().saveUserInfo(getApplicationContext());
+                                                //////////////////
                                                 Intent intent = new Intent(RegistrationActivity.this, CartReviewActivity.class);
                                                 RegistrationActivity.this.startActivity(intent);
                                             }
