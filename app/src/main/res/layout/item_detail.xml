@@ -108,8 +108,7 @@
                     android:background="@drawable/circular_count_bg"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="2"
-                    android:textColor="@android:color/white"
-                    android:textSize="16dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -166,23 +165,105 @@
 
             </GridLayout>
 
-            <com.github.channguyen.rsv.RangeSliderView
-                android:id="@+id/rsv_small"
+            <LinearLayout
+                android:id="@+id/update_count"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                rsv:filledColor="#dd514c"
-                rsv:rangeCount="10"
-                rsv:slotRadiusPercent="0.10"
-                rsv:barHeightPercent="0.08"
-                rsv:sliderRadiusPercent="0.27"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginTop="@dimen/padding_double"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/scan_back_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_extra_double">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/barcode_return" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/padding"
+                        android:src="@drawable/return_back" />
+
+
+                </LinearLayout>
+
+
+                <com.example.abhishekshukla.shopapp.view.CustomTextView
+                    android:id="@+id/item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="10"
+                    android:gravity="left"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/subtract_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/padding"
+                    android:layout_weight="1"
+                    android:background="@drawable/color_filled_minus_small"
+                    android:gravity="center_horizontal" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:background="#cccccc" />
+
+                <ImageView
+                    android:id="@+id/add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/padding"
+                    android:layout_marginRight="@dimen/padding_extra_double"
+                    android:layout_weight="1"
+                    android:background="@drawable/color_filled_plus_small"
+                    android:gravity="center_horizontal"
+
+                    />
+            </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/add_to_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/scan_back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_extra_double"
+                    android:layout_marginTop="@dimen/padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/barcode_return" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/padding"
+                        android:src="@drawable/return_back" />
+
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/button1"
@@ -194,9 +275,9 @@
                     android:layout_marginRight="@dimen/padding_extra_double"
                     android:layout_marginTop="@dimen/padding_extra_small"
                     android:background="@drawable/nice_button"
-                    android:shadowColor="@android:color/black"
-                    android:paddingRight="@dimen/padding"
                     android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:shadowColor="@android:color/black"
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="1"

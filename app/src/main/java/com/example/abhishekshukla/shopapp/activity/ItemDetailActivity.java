@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
@@ -30,7 +31,7 @@ public class ItemDetailActivity  extends Activity {
 
     public static final String PRODUCT_CLICKED = "product.clicked";
 
-    private RangeSliderView smallSlider;
+    //private RangeSliderView smallSlider;
 
     private Product product;
     private TextView cartTextView;
@@ -58,6 +59,10 @@ public class ItemDetailActivity  extends Activity {
         textView4 = (TextView) findViewById(R.id.textView4);
         textView5 = (TextView) findViewById(R.id.textView5);
         textView6 = (TextView) findViewById(R.id.textView6);
+        final View updateCountView = findViewById(R.id.update_count);
+        View scanBack = findViewById(R.id.scan_back_btn);
+        View scanBack2 = findViewById(R.id.scan_back_btn2);
+        final View addToCartView = findViewById(R.id.add_to_cart);
 
         ImageView cartView = (ImageView) findViewById(R.id.item_image_cart);
 
@@ -74,7 +79,24 @@ public class ItemDetailActivity  extends Activity {
                 Toast.makeText(getApplicationContext(), product.getTitle() + " added in the cart",
                         Toast.LENGTH_SHORT).show();
                 cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+                addToCartView.setVisibility(View.GONE);
+                updateCountView.setVisibility(View.VISIBLE);
+                itemCount = 1;
+                textView3.setText("" + itemCount);
+            }
+        });
 
+        scanBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ScannerActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        scanBack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ScannerActivity.class);
                 v.getContext().startActivity(intent);
             }
@@ -111,18 +133,42 @@ public class ItemDetailActivity  extends Activity {
 
         cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
 
-        smallSlider = (RangeSliderView) findViewById(
-                R.id.rsv_small);
-
-        final RangeSliderView.OnSlideListener listener = new RangeSliderView.OnSlideListener() {
-            @Override
-            public void onSlide(int index) {
-                itemCount= index + 1;
+        final ImageView upArrow = (ImageView)  findViewById(R.id.add_button);
+        upArrow.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                itemCount += 1;
                 textView3.setText("" + itemCount);
+                UserCart.getInstance().getItemMap().get(product.getId()).setItemCount(itemCount);
             }
-        };
+        });
+
+        ImageView downArrow = (ImageView)  findViewById(R.id.subtract_button);
+        downArrow.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                itemCount -= 1;
+                UserCart.getInstance().getItemMap().get(product.getId()).setItemCount(itemCount);
+                textView3.setText("" + itemCount);
+                if (itemCount == 0) {
+                    addToCartView.setVisibility(View.VISIBLE);
+                    updateCountView.setVisibility(View.GONE);
+                    UserCart.getInstance().removeItem(product.getId());
+                    cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+                }
+            }
+        });
+
+//        smallSlider = (RangeSliderView) findViewById(
+//                R.id.rsv_small);
+//
+//        final RangeSliderView.OnSlideListener listener = new RangeSliderView.OnSlideListener() {
+//            @Override
+//            public void onSlide(int index) {
+//                itemCount= index + 1;
+//                textView3.setText("" + itemCount);
+//            }
+//        };
         textView5.setPaintFlags(textView5.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        smallSlider.setOnSlideListener(listener);
+        //smallSlider.setOnSlideListener(listener);
     }
 
     @Override
