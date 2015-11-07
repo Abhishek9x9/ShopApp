@@ -1,6 +1,7 @@
 package com.example.abhishekshukla.shopapp.activity.orders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.abhishekshukla.shopapp.R;
+import com.example.abhishekshukla.shopapp.activity.review.CartReviewActivity;
 import com.example.abhishekshukla.shopapp.dto.CartItem;
 import com.example.abhishekshukla.shopapp.dto.OrderSummary;
 
@@ -56,6 +58,15 @@ public class OrderAdapter extends ArrayAdapter<OrderSummary> {
         TextView totalPrice = (TextView) convertView.findViewById(R.id.item_count);
         totalPrice.setText(item.getOrderItemCount() +  " Items ");
 
+        ImageView orderDetails = (ImageView) convertView.findViewById(R.id.order_details);
+        orderDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), CartReviewActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
+            }
+        });
         return convertView;
     }
 

@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         style="@style/ListViewStyle" />
-    <Button
+  <!--  <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/place_order_button"
@@ -100,5 +100,5 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowColor="@android:color/black"
-        android:padding="@dimen/padding"/>
+        android:padding="@dimen/padding"/>-->
 </LinearLayout>
