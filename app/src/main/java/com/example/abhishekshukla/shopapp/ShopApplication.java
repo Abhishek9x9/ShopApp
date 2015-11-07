@@ -68,4 +68,12 @@ public class ShopApplication extends android.app.Application {
         super.onTerminate();
         ProductCache.getInstance().saveProductCache(getInstance());
     }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if(TRIM_MEMORY_UI_HIDDEN == level) {
+            ProductCache.getInstance().saveProductCache(getInstance());
+        }
+    }
 }

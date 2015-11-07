@@ -34,14 +34,16 @@ public class UserAuth {
     private UserInfo userInfo = null;
 
     public void saveUserInfo(Context context){
-        Log.v(UserAuth.class.getSimpleName() + "@saveUserInfo", userInfo.toString());
-        FileOutputStream outputStream;
-        try {
-            outputStream = context.openFileOutput(userInfoFileName, Context.MODE_WORLD_READABLE);
-            outputStream.write(gson.toJson(userInfo).getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(userInfo != null) {
+            Log.v(UserAuth.class.getSimpleName() + "@saveUserInfo", userInfo.toString());
+            FileOutputStream outputStream;
+            try {
+                outputStream = context.openFileOutput(userInfoFileName, Context.MODE_WORLD_READABLE);
+                outputStream.write(gson.toJson(userInfo).getBytes());
+                outputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
