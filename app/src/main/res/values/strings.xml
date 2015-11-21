@@ -36,4 +36,5 @@
     <string name="cancel_button">Cancel</string>
     <string name="try_again"><u>Try Again</u></string>
     <string name="title_activity_order_history">OrderHistoryActivity</string>
+    <string name="pay_now">Pay Now</string>
 </resources>

@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.example.abhishekshukla.shopapp.activity.ItemDetailActivity;
 import com.example.abhishekshukla.shopapp.activity.auth.RegistrationActivity;
 import com.example.abhishekshukla.shopapp.barcode.integration.eandata.ProductLookup;
+import com.example.abhishekshukla.shopapp.barcode.integration.fastlane.ProductLookupFL;
 import com.example.abhishekshukla.shopapp.dto.Product;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
@@ -158,7 +159,7 @@ public class ScannerActivity extends ActionBarActivity implements MessageDialogF
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Product product = ProductLookup.getProductByBarCode(rawResult.getText());
+                Product product = ProductLookupFL.getProductByBarCode(rawResult.getText());
                 if (ringProgressDialog != null) {
                     ringProgressDialog.dismiss();
                 }

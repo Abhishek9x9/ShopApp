@@ -35,7 +35,7 @@
                 android:paddingTop="@dimen/abc_button_padding_horizontal_material"
                 android:src="@drawable/ic_view_list_black_36dp" />-->
 
-            <ImageView
+           <!-- <ImageView
                 android:id="@+id/item_image_carousel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:paddingBottom="@dimen/padding_half"
                 android:paddingLeft="@dimen/padding"
                 android:paddingTop="@dimen/abc_button_padding_horizontal_material"
-                android:src="@drawable/ic_view_carousel_white_36dp" />
+                android:src="@drawable/ic_view_carousel_white_36dp" />-->
 
             <ImageView
                 android:id="@+id/image_cart"
@@ -57,19 +57,19 @@
                 android:paddingTop="@dimen/padding_half"
                 android:src="@drawable/ic_shopping_basket_white_36dp" />
 
-            <TextView
-                android:id="@+id/cartTextView"
+            <com.example.abhishekshukla.shopapp.view.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:paddingBottom="@dimen/padding_double"
+                android:text="(2)"
+                android:textColor="@android:color/white"
                 android:paddingRight="@dimen/padding_small"
                 android:paddingTop="@dimen/padding"
-                android:text="(2)"
-                android:textColor="@android:color/white" />
+                android:paddingBottom="@dimen/padding"
+                android:id="@+id/cartTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -144,6 +144,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <com.example.abhishekshukla.shopapp.view.CustomTextView
+                android:id="@+id/cart_view_item_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

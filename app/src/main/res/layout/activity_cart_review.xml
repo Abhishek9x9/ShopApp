@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.example.abhishekshukla.shopapp.activity.review.CartReviewActivity">
     <LinearLayout
@@ -45,13 +46,14 @@
                 />-->
             <ImageView
                 android:id="@+id/order_history"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/order_history"
                 android:paddingTop="@dimen/padding"
-                android:paddingBottom="@dimen/padding_half"
+                android:paddingBottom="@dimen/padding_double"
                 android:layout_toLeftOf="@+id/image_cart"
-                android:layout_toStartOf="@+id/image_cart" />
+                android:layout_toStartOf="@+id/image_cart"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/image_cart"
@@ -74,7 +76,7 @@
                 android:textColor="@android:color/white"
                 android:paddingRight="@dimen/padding_small"
                 android:paddingTop="@dimen/padding"
-                android:paddingBottom="@dimen/padding_double"
+                android:paddingBottom="@dimen/padding"
                 android:id="@+id/cartTextView"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -87,18 +89,91 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         style="@style/ListViewStyle" />
-  <!--  <Button
+
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:useDefaultMargins="true"
+        android:columnCount="2">
+
+        <com.example.abhishekshukla.shopapp.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:typeface="sans"
+            android:layout_margin="5dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:text="Service Tax (5%) :" />
+
+        <com.example.abhishekshukla.shopapp.view.CustomTextView
+            android:id="@+id/service_tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:typeface="sans"
+            android:layout_margin="5dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:text="233 Rs/-" />
+
+        <com.example.abhishekshukla.shopapp.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:typeface="sans"
+            android:layout_margin="5dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:text="VAT (14%) : " />
+
+        <com.example.abhishekshukla.shopapp.view.CustomTextView
+            android:id="@+id/vat_tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:typeface="sans"
+            android:layout_margin="5dp"
+            android:inputType="number"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:text="233 Rs/-" />
+
+        <com.example.abhishekshukla.shopapp.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:typeface="sans"
+            android:layout_margin="5dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:text="Total Bill Amount : " />
+
+        <com.example.abhishekshukla.shopapp.view.CustomTextView
+            android:id="@+id/total_bill_with_tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:typeface="sans"
+            android:layout_margin="5dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:text="23332 Rs/-" />
+
+    </GridLayout>
+    <Button
+        android:id="@+id/place_order_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/place_order_button"
         android:layout_margin="5dp"
         android:background="@drawable/nice_button"
-        android:text="@string/cart_checkout_confirm"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:shadowRadius="1"
+        android:padding="@dimen/padding"
+        android:shadowColor="@android:color/black"
         android:shadowDx="1"
         android:shadowDy="1"
-        android:shadowColor="@android:color/black"
-        android:padding="@dimen/padding"/>-->
+        android:shadowRadius="1"
+        android:text="@string/pay_now"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 </LinearLayout>

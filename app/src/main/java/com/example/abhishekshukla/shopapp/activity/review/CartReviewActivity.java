@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.abhishekshukla.shopapp.R;
@@ -94,6 +95,25 @@ public class CartReviewActivity extends Activity {
             }
 
         });
+
+        TextView cartTextView = (TextView) findViewById(R.id.cartTextView);
+        cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
+
+        double totalBill = 0;
+        for(CartItem cartItem: UserCart.getInstance().getAllProducts()){
+            totalBill = totalBill + cartItem.getItemCount()*cartItem.getSellingPrice();
+        }
+        int serviceTax = (int)(totalBill*0.05);
+        TextView serviceTaxView = (TextView) findViewById(R.id.service_tax);
+        serviceTaxView.setText(serviceTax + " Rs/-");
+
+        int vatTax = (int)(totalBill*0.14);
+        TextView vatTaxView = (TextView) findViewById(R.id.vat_tax);
+        vatTaxView.setText( vatTax + " Rs/-");
+
+        TextView totalBillWithTax = (TextView) findViewById(R.id.total_bill_with_tax);
+        totalBillWithTax.setText(totalBill + vatTax + serviceTax + " Rs/-");
+
     }
 
 

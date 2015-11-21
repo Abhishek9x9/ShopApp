@@ -58,7 +58,7 @@ public class GoogleCardsAdapter extends ArrayAdapter<CartItem> {
         title.setText(item.getTitle());
 
         TextView price = (TextView) convertView.findViewById(R.id.item_price);
-        price.setText(item.getOriginalPrice());
+        price.setText(item.getSellingPrice() + " Rs/-");
 
         final TextView upArrow = (TextView)  convertView.findViewById(R.id.add_button);
         upArrow.setOnClickListener(new View.OnClickListener() {

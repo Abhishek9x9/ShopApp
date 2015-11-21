@@ -36,6 +36,7 @@ public class UserCart {
             cartItem.setId(product.getId());
             cartItem.setTitle(product.getTitle());
             cartItem.setOriginalPrice(product.getOriginalPrice());
+            cartItem.setSellingPrice(product.getSellingPrice());
             cartItem.setBrand(product.getBrand());
             cartItem.setImageUrl(product.getImageUrl());
             cartItem.setSaving(product.getSaving());

@@ -40,6 +40,7 @@ package com.example.abhishekshukla.shopapp.activity.cart.listview;
  import com.example.abhishekshukla.shopapp.activity.review.CartReviewActivity;
  import com.example.abhishekshukla.shopapp.auth.UserAuth;
  import com.example.abhishekshukla.shopapp.dto.CartItem;
+ import com.example.abhishekshukla.shopapp.view.CustomTextView;
  import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
  import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SwipeUndoAdapter;
  import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.UndoCallback;
@@ -61,14 +62,14 @@ public class CartActivity extends Activity implements UndoCallback {
         cartTextView = (TextView) findViewById(R.id.cartTextView);
         ListView listView = (ListView) findViewById(R.id.list_view);
 
-        ImageView caraoselView = (ImageView) findViewById(R.id.item_image_carousel);
+       /* ImageView caraoselView = (ImageView) findViewById(R.id.item_image_carousel);
 
         caraoselView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CartDetailCarouselAcitivity.class);
                 view.getContext().startActivity(intent);
             }
-        });
+        });*/
 
         mGoogleCardsAdapter = new GoogleCardsAdapter(this, UserCart.getInstance().getAllProducts());
         swipeUndoAdapter = new SwipeUndoAdapter(mGoogleCardsAdapter, this) {
@@ -102,23 +103,32 @@ public class CartActivity extends Activity implements UndoCallback {
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "Checkout is clicked", Toast.LENGTH_SHORT).show();
                 Boolean isUserLoggedIn = UserAuth.getInstance().isUserLoggedIn(v.getContext());
-                if(!isUserLoggedIn) {
+                if (!isUserLoggedIn) {
                     Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
                     v.getContext().startActivity(intent);
-                }else{
+                } else {
                     Intent intent = new Intent(v.getContext(), CartReviewActivity.class);
                     v.getContext().startActivity(intent);
                 }
             }
         });
 
+        TextView cartCountView = (TextView)findViewById(R.id.cart_view_item_count);
+        cartCountView.setText(UserCart.getInstance().getCartSize() + "");
+
+        TextView totalBillView = (TextView)findViewById(R.id.total_bill);
+        double totalBill = 0;
+        for(CartItem cartItem: UserCart.getInstance().getAllProducts()){
+            totalBill = totalBill + cartItem.getItemCount()*cartItem.getSellingPrice();
+        }
+        totalBillView.setText(totalBill + " Rs/-");
 
     }
 
     @Override
     protected  void  onResume () {
         super.onResume();
-        cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+        cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
     }
 
     @Override
@@ -130,7 +140,7 @@ public class CartActivity extends Activity implements UndoCallback {
             UserCart.getInstance().removeItem(mGoogleCardsAdapter.getItem(position).getId());
             mGoogleCardsAdapter.remove(cartItem);
             UserCart.getInstance().removeItem(cartItem.getId());
-            cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+            cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
         }
     }
 

@@ -50,10 +50,10 @@ public class CartItemReviewAdapter extends ArrayAdapter<CartItem> {
         title.setText(item.getTitle());
 
         TextView price = (TextView) convertView.findViewById(R.id.item_price);
-        price.setText(item.getOriginalPrice());
+        price.setText(item.getSellingPrice()+ " Rs/-");
 
         TextView totalPrice = (TextView) convertView.findViewById(R.id.item_total_price);
-        totalPrice.setText(item.getOriginalPrice());
+        totalPrice.setText(item.getSellingPrice()* item.getItemCount()+ " Rs/-");
 
         return convertView;
     }

@@ -30,7 +30,7 @@ public class OnProductFocusedListener implements CoverAdapterView.OnItemSelected
         nameView.setText(cartItem.getTitle());
 
         TextView rateView = (TextView)productView.findViewById(R.id.item_review_rate);
-        rateView.setText(cartItem.getOriginalPrice());
+        rateView.setText(cartItem.getSellingPrice() + " Rs/-");
 
         TextView discountView = (TextView)productView.findViewById(R.id.item_review_discount);
         discountView.setText("You save ₹ " + id);

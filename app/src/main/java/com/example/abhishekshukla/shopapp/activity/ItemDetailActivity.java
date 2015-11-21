@@ -78,7 +78,7 @@ public class ItemDetailActivity  extends Activity {
                 UserCart.getInstance().addItem(product, itemCount);
                 Toast.makeText(getApplicationContext(), product.getTitle() + " added in the cart",
                         Toast.LENGTH_SHORT).show();
-                cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+                cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
                 addToCartView.setVisibility(View.GONE);
                 updateCountView.setVisibility(View.VISIBLE);
                 itemCount = 1;
@@ -112,8 +112,8 @@ public class ItemDetailActivity  extends Activity {
             }
             textView2.setText(product.getTitle());
             textView3.setText("" + itemCount);
-            textView4.setText(product.getSellingPrice());
-            textView5.setText(product.getOriginalPrice());
+            textView4.setText(product.getSellingPrice() + " Rs/-");
+            textView5.setText(product.getOriginalPrice() + " Rs/-");
             textView6.setText(product.getSaving());
         }
         if (savedInstanceState != null && null != savedInstanceState.getSerializable(PRODUCT_CLICKED)) {
@@ -126,12 +126,12 @@ public class ItemDetailActivity  extends Activity {
             }
             textView2.setText(product.getTitle());
             textView3.setText("" + itemCount);
-            textView4.setText(product.getOriginalPrice());
-            textView5.setText(product.getOriginalPrice());
+            textView4.setText(product.getOriginalPrice() + " Rs/-");
+            textView5.setText(product.getOriginalPrice() + " Rs/-");
             textView6.setText(product.getSaving());
         }
 
-        cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+        cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
 
         final ImageView upArrow = (ImageView)  findViewById(R.id.add_button);
         upArrow.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +152,7 @@ public class ItemDetailActivity  extends Activity {
                     addToCartView.setVisibility(View.VISIBLE);
                     updateCountView.setVisibility(View.GONE);
                     UserCart.getInstance().removeItem(product.getId());
-                    cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+                    cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
                 }
             }
         });
@@ -182,7 +182,7 @@ public class ItemDetailActivity  extends Activity {
     @Override
     protected  void  onResume () {
         super.onResume();
-        cartTextView.setText(Integer.toString(UserCart.getInstance().getCartSize()));
+        cartTextView.setText("(" + Integer.toString(UserCart.getInstance().getCartSize()) + ")");
     }
 
     @Override

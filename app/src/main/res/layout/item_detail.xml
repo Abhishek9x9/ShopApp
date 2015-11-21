@@ -37,21 +37,19 @@
                 android:paddingTop="@dimen/padding_half"
                 android:src="@drawable/ic_shopping_basket_white_36dp" />
 
-            <TextView
-                android:id="@+id/itemDetailCartTextView"
+            <com.example.abhishekshukla.shopapp.view.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:paddingBottom="@dimen/padding_double"
-                android:paddingRight="@dimen/padding_small"
-                android:paddingTop="@dimen/padding"
                 android:text="(2)"
                 android:textColor="@android:color/white"
-                android:typeface="sans" />
-
+                android:paddingRight="@dimen/padding_small"
+                android:paddingTop="@dimen/padding"
+                android:paddingBottom="@dimen/padding"
+                android:id="@+id/itemDetailCartTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -210,11 +208,11 @@
                 <ImageView
                     android:id="@+id/subtract_button"
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="41dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="@dimen/padding"
                     android:layout_weight="1"
-                    android:background="@drawable/color_filled_minus_small"
+                    android:background="@drawable/color_filled_minus"
                     android:gravity="center_horizontal" />
 
                 <View
@@ -225,12 +223,12 @@
                 <ImageView
                     android:id="@+id/add_button"
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="41dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/padding"
                     android:layout_marginRight="@dimen/padding_extra_double"
                     android:layout_weight="1"
-                    android:background="@drawable/color_filled_plus_small"
+                    android:background="@drawable/color_filled_plus"
                     android:gravity="center_horizontal"
 
                     />
